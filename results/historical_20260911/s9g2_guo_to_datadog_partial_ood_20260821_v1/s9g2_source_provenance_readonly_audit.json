@@ -1,0 +1,213 @@
+{
+  "archive_channel_overlap": {
+    "clean_unseen_archive_channel_shift": false,
+    "fraction": 0.10333333333333333,
+    "ood_datadog_prefix_malicious_total": 266,
+    "ood_datadog_prefix_rows_retrieved_from_external_datadog_archive": 266,
+    "source_guo_prefix_malicious_total": 7500,
+    "source_guo_prefix_rows_retrieved_from_external_datadog_archive": 775
+  },
+  "artifact": {
+    "name": "S9-G2 source-provenance read-only audit",
+    "status": "PASS_WITH_NAMING_RESTRICTION",
+    "version": "1.0.0"
+  },
+  "checks": {
+    "archive_sha_overlap_zero": true,
+    "component_overlap_zero": true,
+    "field_semantics_reconstructed": true,
+    "final_test_locked": true,
+    "metadata_alignment_exact": true,
+    "population_counts_exact": true,
+    "sample_overlap_zero": true,
+    "selection_contract_exact": true
+  },
+  "completed_result_context": {
+    "fusion_three_seed_mean": {
+      "auroc": 0.9828116965241199,
+      "average_precision": 0.9580681442708271,
+      "f1": 0.8214782150211494,
+      "fpr": 0.004313000616142946,
+      "precision": 0.976059634090722,
+      "recall": 0.7092731829573936
+    },
+    "target_labels_used_for_checkpoint_fusion_or_threshold": false
+  },
+  "execution": {
+    "final_test_evaluated": false,
+    "final_test_path_constructed": false,
+    "final_test_read": false,
+    "gpu_used": false,
+    "model_training": false,
+    "source_inputs_read_only": true
+  },
+  "field_semantics": {
+    "s9g2_grouping_uses_sample_id_prefix": true,
+    "sample_id_prefix_meaning": "upstream malicious-manifest source label (guo/datadog), preserved in sample_id",
+    "source_group_is_assigned_from_matched_local_archive_candidate": true,
+    "source_group_meaning": "local archive-retrieval channel selected by the source-matching pipeline",
+    "these_fields_are_not_one_to_one": true,
+    "upstream_sample_id_prefix_comes_from_malicious_manifest_source": true
+  },
+  "input_sha256": {
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/final/s9g2_guo_to_datadog_partial_ood_result.json": "0582ccdb22fd709ebf70e5be7617fd57c0d9b44512cb1619639cf4c0e60e5a70",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/frozen_population/datadog_ood_evaluation.csv": "23a1869e21b1d939b28c3d3be2a458956f2492d43809caa023a92c3332ae7229",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/frozen_population/source_calibration.csv": "6ba37b8f0d9c28d82e7bf5a721bee9f71c94dc3c136725dfba5c336a3e8d2ae0",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/frozen_population/source_train.csv": "a068d0c8f012239f7f6faf6b651ee6caed7591a857c97f89f47d5e4acfe85849",
+    "scripts/final_dataset_v1/build_final_dataset_groupaware_splits.py": "e1f2b1c5c3925c11da792b85d4039af9f972e9449431da1d3994bd25123fea1e",
+    "scripts/final_dataset_v3/step00_diagnose_dataset_sources_filtered700k.py": "c4b411c4643f578b37322c3b2fdcd1ca9afaa1628130392ebbc11fdf6755cade",
+    "scripts/formal_training_v10c_20260612/run_s9g2_guo_to_datadog_partial_ood.py": "e7d74ebb7a1d64480eaf8c237140677c27c449667ef5757bc666f1bd7d3a071d"
+  },
+  "isolation": {
+    "archive_sha256_overlap": {
+      "source_calibration__ood_evaluation": 0,
+      "source_train__ood_evaluation": 0,
+      "source_train__source_calibration": 0
+    },
+    "component_overlap": {
+      "source_calibration__ood_evaluation": 0,
+      "source_train__ood_evaluation": 0,
+      "source_train__source_calibration": 0
+    },
+    "sample_overlap": {
+      "source_calibration__ood_evaluation": 0,
+      "source_train__ood_evaluation": 0,
+      "source_train__source_calibration": 0
+    }
+  },
+  "metadata_audit": {
+    "archive_root_mismatches": 0,
+    "missing_metadata": 0,
+    "rows_checked": 17340,
+    "sample_identity_mismatches": 0,
+    "source_group_mismatches": 0,
+    "source_group_to_expected_archive_root": [
+      {
+        "archive_root": "<PSHGUARD_ROOT>/external_sources/datadog_malicious_packages/samples",
+        "rows": 1041,
+        "source_group": "external_datadog_samples"
+      },
+      {
+        "archive_root": "<PSHGUARD_ROOT>/sdist/benign",
+        "rows": 9574,
+        "source_group": "sdist_benign"
+      },
+      {
+        "archive_root": "<PSHGUARD_ROOT>/sdist/malicious",
+        "rows": 6725,
+        "source_group": "sdist_malicious"
+      }
+    ]
+  },
+  "paper_positioning": {
+    "abstract_policy": "do not use as a headline contribution or headline performance claim",
+    "discussion_placement": "interpret recall loss and explicitly discuss prefix/archive-channel ambiguity",
+    "methods_placement": "one concise paragraph defining populations and frozen threshold transfer",
+    "page_pressure_fallback": "move the detailed per-seed table to appendix/supplement",
+    "results_placement": "one short RQ subsection after main comparison, ablation, and robustness results",
+    "short_rq_en": "How does the detector behave under a prefix-defined partial malicious-source shift without target-domain recalibration?",
+    "short_rq_zh": "在不进行目标域再校准的情况下，检测器在基于样本身份前缀定义的部分恶意来源迁移下表现如何？"
+  },
+  "population": {
+    "ood_evaluation": {
+      "components": 1140,
+      "cross_table": [
+        {
+          "label_int": 0,
+          "rows": 1082,
+          "sample_id_prefix": "benign",
+          "source_group": "sdist_benign"
+        },
+        {
+          "label_int": 1,
+          "rows": 266,
+          "sample_id_prefix": "datadog",
+          "source_group": "external_datadog_samples"
+        }
+      ],
+      "labels": {
+        "0": 1082,
+        "1": 266
+      },
+      "rows": 1348
+    },
+    "source_calibration": {
+      "components": 1698,
+      "cross_table": [
+        {
+          "label_int": 0,
+          "rows": 1684,
+          "sample_id_prefix": "benign",
+          "source_group": "sdist_benign"
+        },
+        {
+          "label_int": 1,
+          "rows": 65,
+          "sample_id_prefix": "guo",
+          "source_group": "external_datadog_samples"
+        },
+        {
+          "label_int": 1,
+          "rows": 1138,
+          "sample_id_prefix": "guo",
+          "source_group": "sdist_malicious"
+        }
+      ],
+      "labels": {
+        "0": 1684,
+        "1": 1203
+      },
+      "rows": 2887
+    },
+    "source_train": {
+      "components": 6855,
+      "cross_table": [
+        {
+          "label_int": 0,
+          "rows": 6808,
+          "sample_id_prefix": "benign",
+          "source_group": "sdist_benign"
+        },
+        {
+          "label_int": 1,
+          "rows": 710,
+          "sample_id_prefix": "guo",
+          "source_group": "external_datadog_samples"
+        },
+        {
+          "label_int": 1,
+          "rows": 5587,
+          "sample_id_prefix": "guo",
+          "source_group": "sdist_malicious"
+        }
+      ],
+      "labels": {
+        "0": 6808,
+        "1": 6297
+      },
+      "rows": 13105
+    }
+  },
+  "publication_decision": {
+    "authorized_claim": "Target-prefix malicious samples were excluded from source training, checkpoint selection, fusion fitting, and threshold selection; the frozen detector was then evaluated on the target-prefix malicious cohort together with the unchanged benign source.",
+    "canonical_name_en": "prefix-defined partial malicious-source shift stress test",
+    "canonical_name_zh": "基于样本身份前缀定义的部分恶意来源迁移压力测试",
+    "evidence_role": "secondary stress test",
+    "forbidden_claims": [
+      "clean unseen archive-source OOD",
+      "independent external Datadog test set",
+      "temporal OOD",
+      "full-domain or cross-ecosystem OOD",
+      "universal cross-source robustness"
+    ],
+    "reason_for_restriction": "775/7500 Guo-prefix source-side malicious rows were retrieved through the external Datadog archive channel, so identifier-prefix cohorts are isolated but the physical archive channel is not unseen.",
+    "retain": true
+  },
+  "selection_contract": {
+    "all_benign_prefixes_are_benign": true,
+    "ood_contains_no_guo_prefix_malicious": true,
+    "ood_malicious_all_datadog_prefix": true,
+    "source_contains_no_datadog_prefix_malicious": true,
+    "source_malicious_all_guo_prefix": true
+  }
+}

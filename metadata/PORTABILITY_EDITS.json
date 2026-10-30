@@ -1,0 +1,10 @@
+[
+  {
+    "file": "research_state/file_budget_same_seed_fusion_replay_20261026/protocol/PROTOCOL_v1.json",
+    "edit": "Replace author-machine Python executable path with an explicit configuration placeholder; historical numerical protocol unchanged."
+  },
+  {
+    "file": "research_state/single_hgt_ablation_reporting_20261021/scripts/summarize_saved_metrics.py",
+    "edit": "Match the same saved workspace-relative metrics path without embedding the author-machine absolute prefix; metric formulas and data selection unchanged."
+  }
+]

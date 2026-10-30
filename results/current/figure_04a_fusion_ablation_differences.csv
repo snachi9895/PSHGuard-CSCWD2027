@@ -1,0 +1,16 @@
+ablation,metric,point_delta_ratio,ci95_lower_ratio,ci95_upper_ratio,packages,unit_for_plot
+without_event,average_precision,-0.0008311099713771419,-0.0031101384751639647,0.0012804471019466908,2137,multiply ratios by 100 for percentage points
+without_event,precision,0.001733195623429662,-0.013191327882239978,0.018646632602643824,2137,multiply ratios by 100 for percentage points
+without_event,recall,0.0,-0.012377329423642336,0.011996227770321232,2137,multiply ratios by 100 for percentage points
+without_event,f1,0.0007640632760894661,-0.006908572225619872,0.009145492031630557,2137,multiply ratios by 100 for percentage points
+without_event,false_positive_rate,-0.0015403573629081888,-0.017937566705944236,0.013410433324072069,2137,multiply ratios by 100 for percentage points
+without_param_context,average_precision,0.0017690539577561726,0.0006969551373999572,0.003239242446858437,2137,multiply ratios by 100 for percentage points
+without_param_context,precision,0.0007852797348963936,-0.012802732413366113,0.012801939036629184,2137,multiply ratios by 100 for percentage points
+without_param_context,recall,0.00853080568720388,0.0011110648918467665,0.017338035885495172,2137,multiply ratios by 100 for percentage points
+without_param_context,f1,0.004728213890567212,-0.002277540510944834,0.01126799779867265,2137,multiply ratios by 100 for percentage points
+without_param_context,false_positive_rate,-0.0003080714725816336,-0.012041027956291403,0.013245346678707606,2137,multiply ratios by 100 for percentage points
+ast_module_only,average_precision,0.004754983988103367,0.002286296303619262,0.008067399491392662,2137,multiply ratios by 100 for percentage points
+ast_module_only,precision,0.002700107403509122,-0.017460988937555405,0.020632035379455387,2137,multiply ratios by 100 for percentage points
+ast_module_only,recall,0.018957345971564066,0.0023871340947394905,0.037165816905276594,2137,multiply ratios by 100 for percentage points
+ast_module_only,f1,0.011138115424018435,0.0037984818621317586,0.019392392044955867,2137,multiply ratios by 100 for percentage points
+ast_module_only,false_positive_rate,-0.0018484288354898293,-0.019663843624175215,0.018467661378326197,2137,multiply ratios by 100 for percentage points

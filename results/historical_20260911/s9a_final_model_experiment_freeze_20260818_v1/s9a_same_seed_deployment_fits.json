@@ -1,0 +1,129 @@
+{
+  "artifact": {
+    "name": "S9-A same-seed full-validation deployment fits",
+    "not_a_performance_estimate": true,
+    "status": "frozen_for_later_one_time_test_only"
+  },
+  "fits": {
+    "1001": {
+      "all_coefficients_positive": true,
+      "coefficients": [
+        1.11966107811022,
+        1.3876144333136298
+      ],
+      "feature_order": [
+        "hgt_seed1001_raw_logit_margin",
+        "modernbert_seed1001_raw_logit_margin"
+      ],
+      "intercept": 0.3250776852447758,
+      "probability_threshold": 0.33862984645170185,
+      "scaler_mean": [
+        -0.6337405545066103,
+        -1.908435955413547
+      ],
+      "scaler_scale": [
+        10.807797426184155,
+        16.783809516356616
+      ],
+      "validation_in_sample_diagnostic_only": {
+        "f1": 0.9493487698986974,
+        "fn": 71.0,
+        "fp": 34.0,
+        "precision": 0.9666011787819253,
+        "recall": 0.9327014218009478,
+        "threshold": 0.33862984645170185,
+        "tn": 1048.0,
+        "tp": 984.0
+      }
+    },
+    "1002": {
+      "all_coefficients_positive": true,
+      "coefficients": [
+        0.9801054356197206,
+        1.4946797718428488
+      ],
+      "feature_order": [
+        "hgt_seed1002_raw_logit_margin",
+        "modernbert_seed1002_raw_logit_margin"
+      ],
+      "intercept": 0.3675209238863857,
+      "probability_threshold": 0.3131306871983933,
+      "scaler_mean": [
+        -1.8628217742356064,
+        -0.4079948000446011
+      ],
+      "scaler_scale": [
+        10.007565648161398,
+        13.729834314280657
+      ],
+      "validation_in_sample_diagnostic_only": {
+        "f1": 0.9503891050583658,
+        "fn": 78.0,
+        "fp": 24.0,
+        "precision": 0.9760239760239761,
+        "recall": 0.9260663507109005,
+        "threshold": 0.3131306871983933,
+        "tn": 1058.0,
+        "tp": 977.0
+      }
+    },
+    "1003": {
+      "all_coefficients_positive": true,
+      "coefficients": [
+        0.984085017786927,
+        1.4846968015449877
+      ],
+      "feature_order": [
+        "hgt_seed1003_raw_logit_margin",
+        "modernbert_seed1003_raw_logit_margin"
+      ],
+      "intercept": 0.3943992172218552,
+      "probability_threshold": 0.2628500297997201,
+      "scaler_mean": [
+        -2.3772054431479726,
+        2.0032117001966836
+      ],
+      "scaler_scale": [
+        16.876982166527153,
+        14.503849261945355
+      ],
+      "validation_in_sample_diagnostic_only": {
+        "f1": 0.9484145764316139,
+        "fn": 53.0,
+        "fp": 56.0,
+        "precision": 0.947069943289225,
+        "recall": 0.9497630331753555,
+        "threshold": 0.2628500297997201,
+        "tn": 1026.0,
+        "tp": 1002.0
+      }
+    }
+  },
+  "population": {
+    "benign": 1082,
+    "malicious": 1055,
+    "rows": 2137
+  },
+  "protocol": {
+    "C": 0.01,
+    "claim_boundary": "a low-variance complementarity integration, not a new fusion algorithm",
+    "crossfit": "five source-clone-component-isolated outer folds; scaler, fusion, and F1 threshold fit on outer-train only",
+    "deployment_fit": "fit each same-seed pair on all 2137 validation rows and freeze its scaler, coefficients, intercept, and validation-selected threshold before test",
+    "inputs": [
+      "graph raw logit margin",
+      "sequence raw logit margin"
+    ],
+    "max_iter": 5000,
+    "model": "StandardScaler plus L2 LogisticRegression",
+    "random_state": 20260809,
+    "solver": "lbfgs",
+    "threshold_tie_break": [
+      "maximize F1",
+      "maximize precision",
+      "minimize false positives",
+      "choose higher threshold"
+    ],
+    "tol": 1e-10
+  },
+  "test": "LOCKED"
+}

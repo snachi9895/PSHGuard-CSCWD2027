@@ -1,0 +1,7 @@
+contrast,view,replicates,valid,valid_fraction,support_status
+guo_vs_benign,raw_unweighted,2000,2000,1.0,OK
+guo_vs_benign,retained_unweighted,2000,2000,1.0,OK
+guo_vs_benign,retained_overlap_weighted,2000,1967,0.9835,OK
+datadog_vs_benign,raw_unweighted,2000,2000,1.0,OK
+datadog_vs_benign,retained_unweighted,2000,2000,1.0,OK
+datadog_vs_benign,retained_overlap_weighted,2000,1719,0.8595,OK

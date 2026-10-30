@@ -1,0 +1,642 @@
+{
+  "artifact": {
+    "name": "S9-E1 controlled efficiency profile",
+    "version": "1.0.0",
+    "status": "complete"
+  },
+  "scope": {
+    "population": "exact-V2 original validation only",
+    "packages": 2137,
+    "training": false,
+    "final_test_path_constructed": false,
+    "final_test_read": false,
+    "final_test_evaluated": false
+  },
+  "controlled_profiles": {
+    "graph": {
+      "artifact": {
+        "name": "S9-E1 Practical HGT controlled efficiency profile",
+        "version": "1.0.0",
+        "status": "complete"
+      },
+      "scope": {
+        "population": "exact-V2 original validation only",
+        "packages": 2137,
+        "training": false,
+        "model_or_prediction_change": false,
+        "final_test_path_constructed": false,
+        "final_test_read": false,
+        "final_test_evaluated": false
+      },
+      "environment": {
+        "python": "3.10.20",
+        "torch": "2.12.0.dev20260407+cu128",
+        "cuda": "12.8",
+        "gpu": "NVIDIA GeForce RTX 5060 Ti"
+      },
+      "integrity": {
+        "spec_sha256": "0f4f42fca890d6ce5438dbbd3c6f8bd32f0017184f5f58f3e16d647fd986382b",
+        "runner_sha256": "bd003e2b29e49d92b67218c6d29f2c35475e016dda5d42d2091882d15e2fd274",
+        "validation_predictions_sha256": "2bf1338a5bba423a4e0fe25bc26baa76e18de08b3104937561dc5fcae8d86221",
+        "replayed_rows": 2137,
+        "margin_max_abs_difference": 3.814697265625e-06
+      },
+      "model": {
+        "name": "Practical HGT seed1001",
+        "parameters": 277698,
+        "checkpoint_bytes": 1149269,
+        "checkpoint_sha256": "190e9fb2020ee0975104b855f7cd17a594f10869bd1b0a128283d9229087b330",
+        "model_load_seconds": 0.032695579997380264,
+        "batch_size": 4
+      },
+      "timing": {
+        "full_validation_wall_seconds": {
+          "mean": 23.856485748663545,
+          "sample_standard_deviation": 0.6972197941519577,
+          "minimum": 23.35509448999801,
+          "median": 23.56168110699946,
+          "maximum": 24.652681648993166
+        },
+        "full_validation_gpu_forward_seconds": {
+          "mean": 9.21155525859197,
+          "sample_standard_deviation": 0.6737973792090177,
+          "minimum": 8.479920541763306,
+          "median": 9.348165529251098,
+          "maximum": 9.806579704761505
+        },
+        "throughput_packages_per_second": {
+          "mean": 89.62759104099878,
+          "sample_standard_deviation": 2.5803508538643514,
+          "minimum": 86.68428167072351,
+          "median": 90.69811234161736,
+          "maximum": 91.50037911065553
+        },
+        "single_package_sample_rows": 256,
+        "single_package_latency_ms": {
+          "mean": 7.330535527103166,
+          "p50": 6.574362996616401,
+          "p95": 7.594108750708983
+        }
+      },
+      "memory": {
+        "peak_cuda_allocated_bytes": 47613440,
+        "peak_cuda_reserved_bytes": 65011712,
+        "host_max_rss_kib": 1601460
+      }
+    },
+    "sequence": {
+      "artifact": {
+        "name": "S9-E1 ModernBERT controlled efficiency profile",
+        "version": "1.0.0",
+        "status": "complete"
+      },
+      "scope": {
+        "population": "exact-V2 original validation only",
+        "packages": 2137,
+        "training": false,
+        "model_or_prediction_change": false,
+        "final_test_path_constructed": false,
+        "final_test_read": false,
+        "final_test_evaluated": false
+      },
+      "environment": {
+        "python": "3.10.20",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "gpu": "NVIDIA GeForce RTX 5060 Ti"
+      },
+      "integrity": {
+        "spec_sha256": "0f4f42fca890d6ce5438dbbd3c6f8bd32f0017184f5f58f3e16d647fd986382b",
+        "runner_sha256": "bd003e2b29e49d92b67218c6d29f2c35475e016dda5d42d2091882d15e2fd274",
+        "validation_predictions_sha256": "951393d10dff45f64d2769ed9867c2fbf398f7af83e616d45e7d8a9d89729d98",
+        "replayed_rows": 2137,
+        "margin_max_abs_difference": 0.0625,
+        "native_prediction_mismatches": 0,
+        "frozen_prediction_AP": 0.9738463103052503,
+        "replay_AP": 0.9736854766775074,
+        "AP_difference": -0.00016083362774288457,
+        "frozen_prediction_AUROC": 0.9674615202670147,
+        "replay_AUROC": 0.9675031318166288,
+        "AUROC_difference": 4.161154961412894e-05,
+        "numerical_replay_only_not_used_for_scientific_metrics": true
+      },
+      "model": {
+        "name": "ModernBERT seed1001",
+        "parameters": 149606402,
+        "checkpoint_bytes": 598487547,
+        "checkpoint_sha256": "688414f9abd8b418dbeb893e28664c535722088d010ff6cc500ccddb8b9c5748",
+        "model_load_seconds": 0.8599992649978958,
+        "batch_size": 32
+      },
+      "timing": {
+        "full_validation_wall_seconds": {
+          "mean": 21.641983715002425,
+          "sample_standard_deviation": 0.05756582249121214,
+          "minimum": 21.577496108999185,
+          "median": 21.66026917200361,
+          "maximum": 21.68818586400448
+        },
+        "full_validation_gpu_forward_seconds": {
+          "mean": 21.572603256225587,
+          "sample_standard_deviation": 0.05638058162791365,
+          "minimum": 21.509856811523438,
+          "median": 21.588945419311525,
+          "maximum": 21.619007537841796
+        },
+        "throughput_packages_per_second": {
+          "mean": 98.74372513264025,
+          "sample_standard_deviation": 0.26294989393775137,
+          "minimum": 98.53290696603366,
+          "median": 98.6599004393778,
+          "maximum": 99.03836799250935
+        },
+        "single_package_sample_rows": 256,
+        "single_package_latency_ms": {
+          "mean": 17.755513312920357,
+          "p50": 17.527947002236033,
+          "p95": 19.446977252300712
+        }
+      },
+      "memory": {
+        "peak_cuda_allocated_bytes": 1048215552,
+        "peak_cuda_reserved_bytes": 1199570944,
+        "host_max_rss_kib": 2281292
+      }
+    },
+    "fusion_cpu": {
+      "device": "CPU",
+      "rows_per_repetition": 2137,
+      "repetitions": 5000,
+      "total_seconds": 0.1303376659998321,
+      "microseconds_per_package": 0.012198190547480777,
+      "checksum": 5305698.997235396
+    }
+  },
+  "dual_branch_sequential_same_gpu": {
+    "mean_wall_seconds": 45.49849553119917,
+    "packages_per_second": 46.96858599499448,
+    "note": "sum of separately measured frozen branches; conservative single-GPU sequential deployment"
+  },
+  "historical_training_and_preprocessing": {
+    "artifact": {
+      "name": "S9-E0 efficiency/resource readiness result",
+      "version": "1.0.0",
+      "created_utc": "2026-08-21T05:45:57.425293+00:00"
+    },
+    "scope": {
+      "development_only": true,
+      "gpu_training": false,
+      "current_test_predictions_read": false,
+      "current_test_labels_read": false,
+      "current_test_evaluation_run": false,
+      "historical_cerebro_command_mentions_test_path": true
+    },
+    "spec": {
+      "path": "scripts/formal_training_v10c_20260612/s9e0_efficiency_resource_readiness_spec_v1.json",
+      "sha256": "784c171be91e5141e3a5e7059887bfa293ca3ab68c95d41538d3aec6f444d667"
+    },
+    "models": {
+      "hgt": {
+        "model": "Practical HGT graph branch",
+        "training": {
+          "values_seconds": [
+            2140.6631544760003,
+            2009.4727044160063,
+            3480.8179515039956
+          ],
+          "mean_seconds": 2543.6512701320007,
+          "sample_sd_seconds": 814.2565781448036,
+          "mean_minutes": 42.394187835533344,
+          "sample_sd_minutes": 13.57094296908006,
+          "per_seed": [
+            {
+              "seed": 1001,
+              "training_seconds": 2140.6631544760003,
+              "final_epoch": 8,
+              "best_epoch": 2
+            },
+            {
+              "seed": 1002,
+              "training_seconds": 2009.4727044160063,
+              "final_epoch": 8,
+              "best_epoch": 1
+            },
+            {
+              "seed": 1003,
+              "training_seconds": 3480.8179515039956,
+              "final_epoch": 14,
+              "best_epoch": 8
+            }
+          ],
+          "scope": "full recorded validation-only training"
+        },
+        "checkpoint": {
+          "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/p3_rcber_batchsafe_paired_validation_20260807_v2/runs/v10c_formal_v2_strict40_ast_event_param_context_type_balanced_ckpt_ap_inverse_sqrt_p3_batchsafe_practical_v2_seed1001/checkpoints/best_model.pt",
+          "sha256": "190e9fb2020ee0975104b855f7cd17a594f10869bd1b0a128283d9229087b330",
+          "bytes": 1149269,
+          "mib": 1.0960283279418945,
+          "state_tensor_count": 90,
+          "state_tensor_elements": 277698,
+          "interpretation": "checkpoint tensor elements; used as parameter count after architecture/state-key audit"
+        },
+        "peak_training_gpu_memory": {
+          "status": "SHORT_REPROFILE_REQUIRED",
+          "reason": "final three-seed logs do not record peak CUDA memory; an older batch-size pilot is not the exact final run"
+        },
+        "model_only_inference": {
+          "status": "SHORT_REPROFILE_REQUIRED"
+        }
+      },
+      "modernbert": {
+        "model": "ModernBERT sequence branch",
+        "training": {
+          "values_seconds": [
+            3238.2050437010002,
+            2467.7443829500003,
+            2945.815103026
+          ],
+          "mean_seconds": 2883.9215098923337,
+          "sample_sd_seconds": 388.9415381448268,
+          "mean_minutes": 48.06535849820556,
+          "sample_sd_minutes": 6.482358969080447,
+          "per_seed": [
+            {
+              "seed": 1001,
+              "epoch_compute_seconds": 3238.2050437010002,
+              "invocation_seconds": 2118.89327835,
+              "resumed_run": true,
+              "peak_cuda_allocated_bytes": 3745278976,
+              "peak_cuda_reserved_bytes": 4223664128,
+              "peak_host_rss_kib": 2653860,
+              "best_epoch": 4
+            },
+            {
+              "seed": 1002,
+              "epoch_compute_seconds": 2467.7443829500003,
+              "invocation_seconds": 2484.0829809350003,
+              "resumed_run": false,
+              "peak_cuda_allocated_bytes": 3736617472,
+              "peak_cuda_reserved_bytes": 3795845120,
+              "peak_host_rss_kib": 2946784,
+              "best_epoch": 2
+            },
+            {
+              "seed": 1003,
+              "epoch_compute_seconds": 2945.815103026,
+              "invocation_seconds": 2964.5857104230004,
+              "resumed_run": false,
+              "peak_cuda_allocated_bytes": 3736617472,
+              "peak_cuda_reserved_bytes": 3795845120,
+              "peak_host_rss_kib": 2899940,
+              "best_epoch": 3
+            }
+          ],
+          "scope": "sum of all completed epoch timings; seed1001 resume-only invocation time is not used as the full time"
+        },
+        "peak_training_gpu_memory": {
+          "status": "REUSE_PUBLICATION_GRADE",
+          "max_allocated_bytes": 3745278976,
+          "max_reserved_bytes": 4223664128,
+          "per_seed": [
+            {
+              "seed": 1001,
+              "epoch_compute_seconds": 3238.2050437010002,
+              "invocation_seconds": 2118.89327835,
+              "resumed_run": true,
+              "peak_cuda_allocated_bytes": 3745278976,
+              "peak_cuda_reserved_bytes": 4223664128,
+              "peak_host_rss_kib": 2653860,
+              "best_epoch": 4
+            },
+            {
+              "seed": 1002,
+              "epoch_compute_seconds": 2467.7443829500003,
+              "invocation_seconds": 2484.0829809350003,
+              "resumed_run": false,
+              "peak_cuda_allocated_bytes": 3736617472,
+              "peak_cuda_reserved_bytes": 3795845120,
+              "peak_host_rss_kib": 2946784,
+              "best_epoch": 2
+            },
+            {
+              "seed": 1003,
+              "epoch_compute_seconds": 2945.815103026,
+              "invocation_seconds": 2964.5857104230004,
+              "resumed_run": false,
+              "peak_cuda_allocated_bytes": 3736617472,
+              "peak_cuda_reserved_bytes": 3795845120,
+              "peak_host_rss_kib": 2899940,
+              "best_epoch": 3
+            }
+          ]
+        },
+        "checkpoint": {
+          "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_seed1001_validation_20260815_v1/best_validation_model.pt",
+          "sha256": "688414f9abd8b418dbeb893e28664c535722088d010ff6cc500ccddb8b9c5748",
+          "bytes": 598487547,
+          "mib": 570.7622022628784,
+          "state_tensor_count": 138,
+          "state_tensor_elements": 149606402,
+          "interpretation": "checkpoint tensor elements; used as parameter count after architecture/state-key audit"
+        },
+        "fixed_512_cache_materialization": {
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "seconds_train_plus_validation": 43.621443211999576,
+          "packages": 18750,
+          "scope": "tokenization/cache materialization only; not raw source behavior extraction"
+        },
+        "model_only_inference": {
+          "status": "SHORT_REPROFILE_REQUIRED"
+        }
+      }
+    },
+    "baselines": {
+      "ea4mp": {
+        "model": "EA4MP public-code BERT channel (full AdaBoost has additional lightweight metadata/fusion stages)",
+        "training": {
+          "values_seconds": [
+            3443.306770671,
+            4190.124439804,
+            3601.3133653990008
+          ],
+          "mean_seconds": 3744.914858624667,
+          "sample_sd_seconds": 393.5736263709657,
+          "mean_minutes": 62.41524764374445,
+          "sample_sd_minutes": 6.559560439516095,
+          "per_seed": [
+            {
+              "seed": 42,
+              "training_seconds": 3443.306770671,
+              "peak_cuda_allocated_bytes": 2255968768,
+              "peak_cuda_reserved_bytes": 2420113408,
+              "peak_host_rss_kib": 2465828
+            },
+            {
+              "seed": 43,
+              "training_seconds": 4190.124439804,
+              "peak_cuda_allocated_bytes": 2255968768,
+              "peak_cuda_reserved_bytes": 2420113408,
+              "peak_host_rss_kib": 2480088
+            },
+            {
+              "seed": 44,
+              "training_seconds": 3601.3133653990008,
+              "peak_cuda_allocated_bytes": 2255968768,
+              "peak_cuda_reserved_bytes": 2420113408,
+              "peak_host_rss_kib": 1923268
+            }
+          ],
+          "scope": "BERT-channel training"
+        },
+        "peak_training_gpu_memory": {
+          "status": "REUSE_PUBLICATION_GRADE",
+          "max_allocated_bytes": 2255968768,
+          "max_reserved_bytes": 2420113408
+        },
+        "checkpoint": {
+          "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9d_ea4mp_confirmatory_seeds43_44_validation_20260820_v1/seed43/bert_training/final_model/pytorch_model.bin",
+          "sha256": "34ed49a5d0259b799651cb2ebb7cace95c688939726e6c8488abde65a475d1c6",
+          "bytes": 433316487,
+          "mib": 413.2428045272827,
+          "state_tensor_count": 201,
+          "state_tensor_elements": 108311810,
+          "interpretation": "checkpoint tensor elements; used as parameter count after architecture/state-key audit"
+        },
+        "validation_inference": {
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "seconds": [
+            35.65014158099984,
+            35.07976984599918
+          ],
+          "mean_seconds": 35.36495571349951,
+          "packages": 2137,
+          "scope": "BERT-channel validation inference for seeds43/44; full two-channel end-to-end timing still needs a controlled short replay"
+        },
+        "behavior_sequence_warm_cache": {
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "seconds_train": 42.987043,
+          "seconds_validation": 5.052647,
+          "cache_hits_train": 16608,
+          "cache_hits_validation": 2134,
+          "scope": "warm-cache sequence materialization, not cold source analysis"
+        },
+        "head512_input_build": {
+          "status": "REUSE_PUBLICATION_GRADE",
+          "seconds_train": 7.778568716999871,
+          "seconds_validation": 1.7457779369997297
+        }
+      },
+      "cerebro": {
+        "model": "Cerebro RoBERTa reproduction",
+        "historical_combined_job": {
+          "values_seconds": [
+            2519.66,
+            2383.79,
+            2490.09
+          ],
+          "mean_seconds": 2464.5133333333333,
+          "sample_sd_seconds": 71.45480133156435,
+          "mean_minutes": 41.07522222222222,
+          "sample_sd_minutes": 1.1909133555260725,
+          "per_seed": [
+            {
+              "seed": 42,
+              "combined_wall_seconds": 2519.66,
+              "peak_host_rss_kib": 1532552
+            },
+            {
+              "seed": 43,
+              "combined_wall_seconds": 2383.79,
+              "peak_host_rss_kib": 1594976
+            },
+            {
+              "seed": 44,
+              "combined_wall_seconds": 2490.09,
+              "peak_host_rss_kib": 1559616
+            }
+          ],
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "scope": "combined training + validation + historical evaluation wall time; not pure training and not directly comparable",
+          "historical_command_mentions_test_path": true
+        },
+        "peak_training_gpu_memory": {
+          "status": "SHORT_REPROFILE_REQUIRED",
+          "reason": "GNU time records host RSS but not CUDA peak"
+        },
+        "checkpoint": {
+          "path": "baselines/cerebro/results/v2_strict40_roberta_seed42_20260725/final_model/model_state.pt",
+          "sha256": "022eba0cac9be6349f913238c433014ab3be8483536a9d54a4cb9047f888bcfa",
+          "bytes": 496309605,
+          "mib": 473.31772327423096,
+          "state_tensor_count": 199,
+          "state_tensor_elements": 124056578,
+          "interpretation": "checkpoint tensor elements; used as parameter count after architecture/state-key audit"
+        },
+        "model_directory_bytes": 501124684,
+        "model_only_inference": {
+          "status": "SHORT_REPROFILE_REQUIRED"
+        }
+      },
+      "static_tools": {
+        "status": "DEFER_UNTIL_FINAL_TEST_AUTHORIZATION",
+        "audit_pass": true,
+        "audit_sha256": "194d91239e802d5a577b43e9972cdd3dfe04f20cc5f0f28d23bf3573a093cf4b",
+        "seed_policy": "none: Bandit4Mal, GuardDog and OSSGadget are deterministic rule tools",
+        "historical_v1_seconds_per_package": {
+          "Bandit4Mal": 0.902,
+          "OSSGadget": 4.976,
+          "GuardDog_mean": 20.819
+        },
+        "scope": "historical V1 timing only; exact-V2 delta scan timing will be recorded when final-test tool execution is authorized"
+      }
+    },
+    "representation": {
+      "graph": {
+        "population": {
+          "packages": 18750,
+          "splits": {
+            "train": 16613,
+            "validation": 2137
+          }
+        },
+        "graph_structure": {
+          "module_nodes": {
+            "sum": 69371,
+            "mean": 3.699786666666667
+          },
+          "ast_nodes": {
+            "sum": 738727,
+            "mean": 39.39877333333333
+          },
+          "event_nodes": {
+            "sum": 80074,
+            "mean": 4.270613333333333
+          },
+          "param_nodes": {
+            "sum": 102179,
+            "mean": 5.4495466666666665
+          },
+          "all_nodes": {
+            "sum": 990351,
+            "mean": 52.81872,
+            "median": 18.0,
+            "p95": 240.0,
+            "max": 542
+          },
+          "edges": {
+            "sum": 3524676,
+            "mean": 187.98272,
+            "median": 56.0,
+            "p95": 867.0999999999985,
+            "max": 2938
+          }
+        },
+        "disk": {
+          "graph_json_bytes": 958867613,
+          "final_practical_pt_bytes": 230918858,
+          "candidate_pt_bytes": 289336138
+        },
+        "graph_construction": {
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "recovered_development_artifact_write_span_seconds": 1834.1558837890625,
+          "recovered_throughput_packages_per_second": 10.22268617717792,
+          "scope": "development graph-file mtime window; useful provenance but not a controlled cold benchmark"
+        },
+        "candidate_pt_conversion": {
+          "status": "REUSE_WITH_SCOPE_QUALIFIER",
+          "seconds": 205.0,
+          "throughput_packages_per_second": 91.46341463414635,
+          "scope": "logged candidate/controlled-zero conversion; final Practical HGT consumes the historical old_pt_path and needs a short exact-path profile"
+        },
+        "manifest_sha256": "627703c696155a6221a2d0baa5fec18ed53af6a44be15ff21b42f1ba930f325b"
+      }
+    },
+    "decision": {
+      "status": "PASS_EXISTING_EVIDENCE_INVENTORIED_SHORT_REPROFILE_REQUIRED",
+      "training_rerun_required": false,
+      "short_profile_required": true,
+      "next_stage": "S9-E1 controlled development-only inference and preprocessing profile"
+    },
+    "readiness_table": [
+      {
+        "item": "Practical HGT training time",
+        "status": "REUSE_PUBLICATION_GRADE",
+        "value": "42.394 +/- 13.571 min",
+        "next_action": "none"
+      },
+      {
+        "item": "ModernBERT training time",
+        "status": "REUSE_PUBLICATION_GRADE",
+        "value": "48.065 +/- 6.482 min",
+        "next_action": "none"
+      },
+      {
+        "item": "EA4MP BERT training time",
+        "status": "REUSE_PUBLICATION_GRADE",
+        "value": "62.415 +/- 6.560 min",
+        "next_action": "none"
+      },
+      {
+        "item": "Cerebro time",
+        "status": "REUSE_WITH_SCOPE_QUALIFIER",
+        "value": "41.075 min combined job",
+        "next_action": "short validation-only reprofile if placed in the same efficiency table"
+      },
+      {
+        "item": "Graph construction",
+        "status": "REUSE_WITH_SCOPE_QUALIFIER",
+        "value": "30.569 min recovered window",
+        "next_action": "controlled development-subset cold benchmark"
+      },
+      {
+        "item": "HGT inference/VRAM",
+        "status": "SHORT_REPROFILE_REQUIRED",
+        "value": "missing exact final-model profile",
+        "next_action": "validation-only warmup + repeated timed inference"
+      },
+      {
+        "item": "ModernBERT inference",
+        "status": "SHORT_REPROFILE_REQUIRED",
+        "value": "missing standardized same-hardware profile",
+        "next_action": "validation-only warmup + repeated timed inference"
+      },
+      {
+        "item": "Paired end-to-end inference",
+        "status": "SHORT_REPROFILE_REQUIRED",
+        "value": "missing",
+        "next_action": "sequential branch inference + fusion overhead on development population"
+      },
+      {
+        "item": "Static tools exact-V2 timing",
+        "status": "DEFER_UNTIL_FINAL_TEST_AUTHORIZATION",
+        "value": "historical V1 only",
+        "next_action": "record during authorized deterministic delta scans"
+      }
+    ]
+  },
+  "reporting_contract": {
+    "training_cost_source": "S9-E0 audited historical records; no retraining",
+    "graph_construction_cost": "reported separately from model inference",
+    "controlled_comparison": "only values produced by this S9-E1 harness are directly timing-comparable",
+    "historical_baseline_runtime": "context only; never presented as identical-harness timing",
+    "fastest_model_required": false,
+    "decision_goal": "quantify accuracy-cost trade-off and deployment feasibility"
+  },
+  "interpretation": {
+    "fastest_required": false,
+    "purpose": "show feasibility, bottlenecks, and accuracy-cost trade-off rather than force every method to be the fastest",
+    "directly_comparable": [
+      "Practical HGT",
+      "ModernBERT",
+      "sequential dual branch"
+    ],
+    "baseline_historical_times_are_context_only": true
+  },
+  "integrity": {
+    "spec_sha256": "0f4f42fca890d6ce5438dbbd3c6f8bd32f0017184f5f58f3e16d647fd986382b",
+    "runner_sha256": "bd003e2b29e49d92b67218c6d29f2c35475e016dda5d42d2091882d15e2fd274",
+    "graph_profile_sha256": "0580e4d6a0adacf4bb5f2308621352e1f8a3d0fd89f8d53b13a5998a433b2ec1",
+    "sequence_profile_sha256": "65ec7a31e74007a2fdaf7efb915eb2a9e1ab505cf3af27ee42fa7790f8ce16f4",
+    "table_sha256": "c792f79ab19aaea8abc5250ccd89538a122bbafd828a72cf08fec8be6380a6bc"
+  }
+}

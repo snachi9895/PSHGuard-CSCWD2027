@@ -1,0 +1,49 @@
+{
+  "cost_values": {
+    "sequential_packages_per_second": "46.969",
+    "ModernBERT_packages_per_second": "98.744",
+    "scope": {
+      "population": "exact-V2 original validation only",
+      "packages": 2137,
+      "training": false,
+      "final_test_path_constructed": false,
+      "final_test_read": false,
+      "final_test_evaluated": false
+    },
+    "serial_estimate_note": "sum of separately measured frozen branches; conservative single-GPU sequential deployment",
+    "graph_model": "Practical HGT seed1001",
+    "sequence_model": "ModernBERT seed1001",
+    "measurement_identity": "three timing replays, not three independent training runs"
+  },
+  "calibration_ECE_percent": {
+    "same_seed_pair": "12.987",
+    "modernbert": "2.445"
+  },
+  "holdout_values_percent": {
+    "average_precision": "95.807",
+    "f1": "82.148",
+    "fpr": "0.431",
+    "recall": "70.927",
+    "ModernBERT_F1": "84.888"
+  },
+  "holdout_population": {
+    "ood_evaluation": 1348,
+    "source_calibration": 2887,
+    "source_pool": 15992,
+    "source_train": 13105
+  },
+  "holdout_archive_overlap": {
+    "clean_unseen_archive_channel_shift": false,
+    "fraction": 0.10333333333333333,
+    "ood_datadog_prefix_malicious_total": 266,
+    "ood_datadog_prefix_rows_retrieved_from_external_datadog_archive": 266,
+    "source_guo_prefix_malicious_total": 7500,
+    "source_guo_prefix_rows_retrieved_from_external_datadog_archive": 775
+  },
+  "holdout_source_identity": "prefix-defined partial malicious-source shift stress test",
+  "holdout_disjoint_components": {
+    "calibration_ood": 0,
+    "train_calibration": 0,
+    "train_ood": 0
+  }
+}

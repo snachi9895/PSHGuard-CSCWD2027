@@ -1,0 +1,75 @@
+{
+  "bootstrap": {
+    "f1_fusion_minus_graph": {
+      "ci95_percentile_lower": 0.013862997751427754,
+      "ci95_percentile_upper": 0.06756478082807175,
+      "mean": 0.040877133411876584,
+      "median": 0.0410199876689652,
+      "probability_gt_zero": 0.99795,
+      "sample_standard_deviation": 0.013556709533136762
+    },
+    "f1_fusion_minus_modernbert": {
+      "ci95_percentile_lower": -2.5180761222037796e-05,
+      "ci95_percentile_upper": 0.027824696014799793,
+      "mean": 0.013668121813760283,
+      "median": 0.013618172047921151,
+      "probability_gt_zero": 0.9747,
+      "sample_standard_deviation": 0.007010430701715673
+    },
+    "precision_fusion_minus_graph": {
+      "ci95_percentile_lower": 0.02344133487653601,
+      "ci95_percentile_upper": 0.07940951125706297,
+      "mean": 0.05024092408193808,
+      "median": 0.04977769670683885,
+      "probability_gt_zero": 1.0,
+      "sample_standard_deviation": 0.014454619398776522
+    },
+    "precision_fusion_minus_modernbert": {
+      "ci95_percentile_lower": -0.018326187432919507,
+      "ci95_percentile_upper": 0.024907017431501383,
+      "mean": 0.006185056745665253,
+      "median": 0.007272235451015185,
+      "probability_gt_zero": 0.7535,
+      "sample_standard_deviation": 0.010869453387363698
+    },
+    "recall_fusion_minus_graph": {
+      "ci95_percentile_lower": -0.024077750701681798,
+      "ci95_percentile_upper": 0.08508822240457861,
+      "mean": 0.03030681343714919,
+      "median": 0.03039948692849065,
+      "probability_gt_zero": 0.8621,
+      "sample_standard_deviation": 0.027906753452144037
+    },
+    "recall_fusion_minus_modernbert": {
+      "ci95_percentile_lower": 0.006276056897766913,
+      "ci95_percentile_upper": 0.03719923961761601,
+      "mean": 0.020292114616825174,
+      "median": 0.01979621542940324,
+      "probability_gt_zero": 0.99825,
+      "sample_standard_deviation": 0.007831951737736901
+    }
+  },
+  "point_deltas": {
+    "f1_fusion_minus_graph": 0.04057491045690087,
+    "f1_fusion_minus_modernbert": 0.013545065609645413,
+    "precision_fusion_minus_graph": 0.05006993730046805,
+    "precision_fusion_minus_modernbert": 0.006092900600469742,
+    "recall_fusion_minus_graph": 0.029902423670129075,
+    "recall_fusion_minus_modernbert": 0.02014479068303432
+  },
+  "primary_metric": "F1",
+  "random_state": 20260822,
+  "replicates": 20000,
+  "scheme": "sample three seeds with replacement and source-clone components with replacement; share every draw across fusion and both branches",
+  "secondary_metrics": [
+    "Precision",
+    "Recall"
+  ],
+  "seeds": [
+    1001,
+    1002,
+    1003
+  ],
+  "source_clone_components": 1573,
+  "status": "PASS_PRE_REGISTERED_PAIRED_BOOTSTRAP"
+}

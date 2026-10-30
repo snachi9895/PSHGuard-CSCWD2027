@@ -1,0 +1,159 @@
+{
+  "deterministic": {
+    "Bandit4Mal": {
+      "accuracy": 0.5281954887218046,
+      "auroc": null,
+      "average_precision": null,
+      "confusion_matrix": {
+        "fn": 59,
+        "fp": 945,
+        "tn": 124,
+        "tp": 1000
+      },
+      "f1": 0.6657789613848202,
+      "fpr": 0.8840037418147801,
+      "precision": 0.5141388174807198,
+      "recall": 0.9442870632672332,
+      "rows": 2128,
+      "threshold": null
+    },
+    "GuardDog": {
+      "accuracy": 0.8049812030075187,
+      "auroc": null,
+      "average_precision": null,
+      "confusion_matrix": {
+        "fn": 243,
+        "fp": 172,
+        "tn": 897,
+        "tp": 816
+      },
+      "f1": 0.7972642892037126,
+      "fpr": 0.16089803554724041,
+      "precision": 0.8259109311740891,
+      "recall": 0.7705382436260623,
+      "rows": 2128,
+      "threshold": null
+    },
+    "OSSGadget": {
+      "accuracy": 0.4149436090225564,
+      "auroc": null,
+      "average_precision": null,
+      "confusion_matrix": {
+        "fn": 204,
+        "fp": 1041,
+        "tn": 28,
+        "tp": 855
+      },
+      "f1": 0.5786802030456852,
+      "fpr": 0.9738072965388214,
+      "precision": 0.4509493670886076,
+      "recall": 0.8073654390934845,
+      "rows": 2128,
+      "threshold": null
+    },
+    "VirusTotal (>=1 malicious engine)": {
+      "auroc": null,
+      "average_precision": null,
+      "confusion_matrix": {
+        "fn": 601,
+        "fp": 3,
+        "tn": 1066,
+        "tp": 458
+      },
+      "f1": 0.602632,
+      "fpr": 0.002806,
+      "precision": 0.993492,
+      "recall": 0.432483,
+      "rows": 2128
+    }
+  },
+  "identity_audit_sha256": "aea9950407a08ca1e2ec19d979b86dffc7c998d7b8f91aa1b05b9de3001122df",
+  "learned": {
+    "Cerebro": {
+      "auroc_mean": 0.9477965604630805,
+      "auroc_sd": 0.0016619561533959982,
+      "average_precision_mean": 0.9560507705471731,
+      "average_precision_sd": 0.0029403000451009606,
+      "f1_mean": 0.8612311563806859,
+      "f1_sd": 0.014070598107320784,
+      "fpr_mean": 0.13719987527284067,
+      "fpr_sd": 0.07409793219299884,
+      "precision_mean": 0.8664042628602666,
+      "precision_sd": 0.0535017023996592,
+      "recall_mean": 0.8615045640541391,
+      "recall_sd": 0.06663973254846907
+    },
+    "EA4MP": {
+      "auroc_mean": 0.9178685200250986,
+      "auroc_sd": 0.012029954946328835,
+      "average_precision_mean": 0.9359207587710257,
+      "average_precision_sd": 0.008862118336111485,
+      "f1_mean": 0.8836283022568894,
+      "f1_sd": 0.012680133547535772,
+      "fpr_mean": 0.052385406922357346,
+      "fpr_sd": 0.02038774061525105,
+      "precision_mean": 0.9412270808547084,
+      "precision_sd": 0.020109496981574573,
+      "recall_mean": 0.833805476864967,
+      "recall_sd": 0.03720059604077849
+    },
+    "HGT plus ModernBERT (ours)": {
+      "auroc_mean": 0.9788411386447199,
+      "auroc_sd": 0.0026358512254563895,
+      "average_precision_mean": 0.98237168379295,
+      "average_precision_sd": 0.0028902626486132523,
+      "f1_mean": 0.9253828062382694,
+      "f1_sd": 0.01238342515877137,
+      "fpr_mean": 0.054879950109136266,
+      "fpr_sd": 0.0062285576412342315,
+      "precision_mean": 0.9426076137533436,
+      "precision_sd": 0.00566121732698533,
+      "recall_mean": 0.9090336795719232,
+      "recall_sd": 0.024917968502379338
+    },
+    "ModernBERT (auxiliary sequence branch)": {
+      "auroc_mean": 0.9588022011575835,
+      "auroc_sd": 0.004129001515199856,
+      "average_precision_mean": 0.9691719852448252,
+      "average_precision_sd": 0.004812584937295534,
+      "f1_mean": 0.911837740628624,
+      "f1_sd": 0.01664542281658615,
+      "fpr_mean": 0.05986903648269411,
+      "fpr_sd": 0.013843450502290681,
+      "precision_mean": 0.9365147131528737,
+      "precision_sd": 0.013476497580369123,
+      "recall_mean": 0.8888888888888888,
+      "recall_sd": 0.03143686552634274
+    },
+    "Practical HGT (ours, graph branch)": {
+      "auroc_mean": 0.95272764105196,
+      "auroc_sd": 0.008603819743732142,
+      "average_precision_mean": 0.9561309091831196,
+      "average_precision_sd": 0.008634542420124696,
+      "f1_mean": 0.8848078957813685,
+      "f1_sd": 0.01745534760866559,
+      "fpr_mean": 0.10632990333645151,
+      "fpr_sd": 0.034628637636113055,
+      "precision_mean": 0.8925376764528755,
+      "precision_sd": 0.028037704987751093,
+      "recall_mean": 0.8791312559017941,
+      "recall_sd": 0.04802885732211336
+    }
+  },
+  "no_test_driven_model_threshold_or_claim_selection": true,
+  "paired_bootstrap_replicates_sha256": "53b913f9912032d350ee0fe53beff2dd3a5b88bf30550cadf02c6d60ca07e37a",
+  "paired_statistics_sha256": "ba19d5563dd8c47d71f27af9a691ee6fadea66cf94229bb2a50c57417f01a625",
+  "rows_in_order": [
+    "Bandit4Mal",
+    "GuardDog",
+    "OSSGadget",
+    "VirusTotal (>=1 malicious engine)",
+    "Cerebro",
+    "EA4MP",
+    "Practical HGT (ours, graph branch)",
+    "ModernBERT (auxiliary sequence branch)",
+    "HGT plus ModernBERT (ours)"
+  ],
+  "status": "PASS_ONE_SHOT_REPORT_COMPLETE",
+  "table_sha256": "410c5af0c0194bf51719e7113e831180a911b56ef7820b87c4fab06d5d8d98a6"
+}

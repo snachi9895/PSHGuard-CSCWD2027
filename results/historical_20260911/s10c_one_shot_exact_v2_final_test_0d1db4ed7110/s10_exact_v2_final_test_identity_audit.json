@@ -1,0 +1,111 @@
+{
+  "canonical_manifest_sha256": "4481e03bcb932698515466a556e3ff72f30aa94d6a6e6408668c296e0d6abb1b",
+  "methods": {
+    "Bandit4Mal": {
+      "labels_exact": true,
+      "predictions_sha256": "d195d551cbf924677ff35238e7759784531b037dc1215eeedecfae9de6510612",
+      "rows": 2128,
+      "status": "PASS_EXACT_CANONICAL_IDENTITY",
+      "unique_sample_ids": 2128
+    },
+    "Cerebro_seed42": {
+      "predictions_sha256": "e9836c760a8f89ab97f5d98453695e99e4069accb935985a9f08d2598e6496ba",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "Cerebro_seed43": {
+      "predictions_sha256": "e9836c760a8f89ab97f5d98453695e99e4069accb935985a9f08d2598e6496ba",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "Cerebro_seed44": {
+      "predictions_sha256": "e9836c760a8f89ab97f5d98453695e99e4069accb935985a9f08d2598e6496ba",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "EA4MP_seed42": {
+      "predictions_sha256": "0adf23c959d2d5e68c0f3e144c4380d4274d6c00c8d9e851941f445313b20867",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "EA4MP_seed43": {
+      "predictions_sha256": "a6f479484e105f7ca1a1b287307bfccbcdfe24ae1255150485d7f1afe71e10ae",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "EA4MP_seed44": {
+      "predictions_sha256": "f9064078c7568d9c072c66d90b1cbb0b98543c27a47f4c3a1d701ededefb5cce",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "GuardDog": {
+      "labels_exact": true,
+      "predictions_sha256": "f8f0e32a88c2edb083ad4182f7e2117235a99a813a4d92ffe37ba664140be46c",
+      "rows": 2128,
+      "status": "PASS_EXACT_CANONICAL_IDENTITY",
+      "unique_sample_ids": 2128
+    },
+    "OSSGadget": {
+      "labels_exact": true,
+      "predictions_sha256": "e0ea4def7c404ebb057f6aebc80e5665ab037bf0751f3cd9cd447c2947dfd151",
+      "rows": 2128,
+      "status": "PASS_EXACT_CANONICAL_IDENTITY",
+      "unique_sample_ids": 2128
+    },
+    "VirusTotal (>=1 malicious engine)": {
+      "metrics_sha256": "a193946ac7075a2e096d83088cd41beba210daf84b2b947c2ec69a227c3cc229",
+      "row_level_predictions_available": false,
+      "rows": 2128,
+      "status": "PASS_FROZEN_AGGREGATE_ONLY"
+    },
+    "fusion_seed1001": {
+      "predictions_sha256": "b1b197375c8a86f79ab09b42b6a5416dbe2a11043cf46cabe66fcc29faf59075",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "fusion_seed1002": {
+      "predictions_sha256": "91600f3e7c1523b75189b42256febe2675b9172103fb127beb33c6a3020bea5e",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "fusion_seed1003": {
+      "predictions_sha256": "e40711bd26fa435ddec708b792da089df7dc103afc834f406db536b80c655397",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "graph_seed1001": {
+      "predictions_sha256": "30a871017ff8ac027405933f17145dedde0182bbbe6531b94bbdb7afaab0636c",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "graph_seed1002": {
+      "predictions_sha256": "f92d99996860a1b1f98b22e06c399999b5e467c25e45790e5d97fccf22a4f620",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "graph_seed1003": {
+      "predictions_sha256": "bd6d81743397444348b68ce98f8330b65dc2419165c5b3940f9912ce3644df9d",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "modernbert_seed1001": {
+      "predictions_sha256": "c5de0b87139f420c423129d73b0570095d45dd86bf8f94cc4b6cbd51eff20622",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "modernbert_seed1002": {
+      "predictions_sha256": "105ee6b89ee078cd4f22efa69a72c506d63c567ded62c40c4aadeeec54248d4e",
+      "rows": 2128,
+      "status": "PASS"
+    },
+    "modernbert_seed1003": {
+      "predictions_sha256": "deb669ab5f0219da0b7c6e36e096ffbe3659df2cb92149ab5c4a4a70cfbfd06d",
+      "rows": 2128,
+      "status": "PASS"
+    }
+  },
+  "rows": 2128,
+  "source_clone_components": 1573,
+  "status": "PASS_EXACT_V2_CANONICAL_IDENTITY",
+  "unique_sample_ids": 2128
+}

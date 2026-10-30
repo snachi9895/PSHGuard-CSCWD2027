@@ -1,0 +1,701 @@
+{
+  "stage": "overall_detection_batch02",
+  "source_bindings": [
+    {
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/80_seal/s10_exact_v2_execution_corrigendum_seal.json",
+      "sha256": "1683afb1af10af80f6b9f6630a2f76026289969e6b5a8b79527c904d2aba5924"
+    },
+    {
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+      "sha256": "c7e3f626644834fb72809e70a261c8da8c2a1e708f6489a63f72c3be42ef06b3",
+      "binding": "S10-C execution corrigendum seal.inventory"
+    },
+    {
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_paired_statistics.json",
+      "sha256": "ba19d5563dd8c47d71f27af9a691ee6fadea66cf94229bb2a50c57417f01a625",
+      "binding": "S10-C execution corrigendum seal.inventory"
+    },
+    {
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_main_table.csv",
+      "sha256": "410c5af0c0194bf51719e7113e831180a911b56ef7820b87c4fab06d5d8d98a6",
+      "binding": "S10-C execution corrigendum seal.inventory"
+    },
+    {
+      "path": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/complete.json",
+      "sha256": "392df11863044120051d1b071a95a0691ab462f24d2320ccde672fcb05cceee3"
+    },
+    {
+      "path": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+      "sha256": "600a48b7e5678e24640c7cd04e738a1f5118d6cc54aff6a106016c71c7881cd3",
+      "binding": "G_R4_final_acceptance/complete.json outputs"
+    },
+    {
+      "path": "paper0823/manuscript/build/generated/en/w4_external_ranking_rows.tex",
+      "sha256": "7c91625570890e45611c70c27d08746376450ab4a770f866d2faedb44f9eddd7"
+    },
+    {
+      "path": "paper0823/manuscript/build/generated/en/w4_external_decision_rows.tex",
+      "sha256": "1d17cf96d6385b75c1d103aa1ad22b6abad1a44cdd67dbe808733b309bf1a62c"
+    },
+    {
+      "path": "paper0823/manuscript/build/generated/en/w3r1_branch_control_rows.tex",
+      "sha256": "92c8a92b6d2ee23d1c5dfc9d12bf92e77646e45b0fe70c3d670fe24a85d51282"
+    }
+  ],
+  "rows": [
+    {
+      "method": "Bandit4Mal",
+      "reporting": "single-run point estimate",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/Bandit4Mal/average_precision",
+          "saved_value": null,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": null,
+          "bold": false,
+          "tex": "--"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/Bandit4Mal/recall",
+          "saved_value": 0.9442870632672332,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "94.429",
+          "bold": false,
+          "tex": "$94.429$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/Bandit4Mal/f1",
+          "saved_value": 0.6657789613848202,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "66.578",
+          "bold": false,
+          "tex": "$66.578$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/Bandit4Mal/fpr",
+          "saved_value": 0.8840037418147801,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "88.400",
+          "bold": false,
+          "tex": "$88.400$"
+        }
+      }
+    },
+    {
+      "method": "GuardDog",
+      "reporting": "single-run point estimate",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/GuardDog/average_precision",
+          "saved_value": null,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": null,
+          "bold": false,
+          "tex": "--"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/GuardDog/recall",
+          "saved_value": 0.7705382436260623,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "77.054",
+          "bold": false,
+          "tex": "$77.054$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/GuardDog/f1",
+          "saved_value": 0.7972642892037126,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "79.726",
+          "bold": false,
+          "tex": "$79.726$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/GuardDog/fpr",
+          "saved_value": 0.16089803554724041,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "16.090",
+          "bold": false,
+          "tex": "$16.090$"
+        }
+      }
+    },
+    {
+      "method": "OSSGadget",
+      "reporting": "single-run point estimate",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/OSSGadget/average_precision",
+          "saved_value": null,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": null,
+          "bold": false,
+          "tex": "--"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/OSSGadget/recall",
+          "saved_value": 0.8073654390934845,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "80.737",
+          "bold": false,
+          "tex": "$80.737$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/OSSGadget/f1",
+          "saved_value": 0.5786802030456852,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "57.868",
+          "bold": false,
+          "tex": "$57.868$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/OSSGadget/fpr",
+          "saved_value": 0.9738072965388214,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "97.381",
+          "bold": false,
+          "tex": "$97.381$"
+        }
+      }
+    },
+    {
+      "method": "VirusTotal",
+      "reporting": "single-run point estimate",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/VirusTotal (>=1 malicious engine)/average_precision",
+          "saved_value": null,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": null,
+          "bold": false,
+          "tex": "--"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/VirusTotal (>=1 malicious engine)/recall",
+          "saved_value": 0.432483,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "43.248",
+          "bold": false,
+          "tex": "$43.248$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/VirusTotal (>=1 malicious engine)/f1",
+          "saved_value": 0.602632,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "60.263",
+          "bold": false,
+          "tex": "$60.263$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "deterministic/VirusTotal (>=1 malicious engine)/fpr",
+          "saved_value": 0.002806,
+          "display_scale": 100,
+          "sample_sd_display": null,
+          "mean_display": "0.281",
+          "bold": false,
+          "tex": "$0.281$"
+        }
+      }
+    },
+    {
+      "method": "Cerebro",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Cerebro/average_precision",
+          "saved_mean": 0.9560507705471731,
+          "saved_sd": 0.0029403000451009606,
+          "display_scale": 100,
+          "mean_display": "95.605",
+          "sample_sd_display": "0.294",
+          "bold": false,
+          "tex": "$95.605 \\pm 0.294$"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Cerebro/recall",
+          "saved_mean": 0.8615045640541391,
+          "saved_sd": 0.06663973254846907,
+          "display_scale": 100,
+          "mean_display": "86.150",
+          "sample_sd_display": "6.664",
+          "bold": false,
+          "tex": "$86.150 \\pm 6.664$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Cerebro/f1",
+          "saved_mean": 0.8612311563806859,
+          "saved_sd": 0.014070598107320784,
+          "display_scale": 100,
+          "mean_display": "86.123",
+          "sample_sd_display": "1.407",
+          "bold": false,
+          "tex": "$86.123 \\pm 1.407$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Cerebro/fpr",
+          "saved_mean": 0.13719987527284067,
+          "saved_sd": 0.07409793219299884,
+          "display_scale": 100,
+          "mean_display": "13.720",
+          "sample_sd_display": "7.410",
+          "bold": false,
+          "tex": "$13.720 \\pm 7.410$"
+        }
+      }
+    },
+    {
+      "method": "EA4MP",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/EA4MP/average_precision",
+          "saved_mean": 0.9359207587710257,
+          "saved_sd": 0.008862118336111485,
+          "display_scale": 100,
+          "mean_display": "93.592",
+          "sample_sd_display": "0.886",
+          "bold": false,
+          "tex": "$93.592 \\pm 0.886$"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/EA4MP/recall",
+          "saved_mean": 0.833805476864967,
+          "saved_sd": 0.03720059604077849,
+          "display_scale": 100,
+          "mean_display": "83.381",
+          "sample_sd_display": "3.720",
+          "bold": false,
+          "tex": "$83.381 \\pm 3.720$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/EA4MP/f1",
+          "saved_mean": 0.8836283022568894,
+          "saved_sd": 0.012680133547535772,
+          "display_scale": 100,
+          "mean_display": "88.363",
+          "sample_sd_display": "1.268",
+          "bold": false,
+          "tex": "$88.363 \\pm 1.268$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/EA4MP/fpr",
+          "saved_mean": 0.052385406922357346,
+          "saved_sd": 0.02038774061525105,
+          "display_scale": 100,
+          "mean_display": "5.239",
+          "sample_sd_display": "2.039",
+          "bold": true,
+          "tex": "{\\boldmath$5.239 \\pm 2.039$}"
+        }
+      }
+    },
+    {
+      "method": "PyPIMalDet",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+          "field": "summary/AP",
+          "saved_mean_percent": 90.07983612451466,
+          "saved_sd_pp": 3.879039250848039,
+          "display_scale": 1,
+          "mean_display": "90.080",
+          "sample_sd_display": "3.879",
+          "bold": false,
+          "tex": "$90.080 \\pm 3.879$"
+        },
+        "Recall": {
+          "source": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+          "field": "summary/Recall",
+          "saved_mean_percent": 78.75354107648725,
+          "saved_sd_pp": 7.475390550713795,
+          "display_scale": 1,
+          "mean_display": "78.754",
+          "sample_sd_display": "7.475",
+          "bold": false,
+          "tex": "$78.754 \\pm 7.475$"
+        },
+        "F1": {
+          "source": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+          "field": "summary/F1",
+          "saved_mean_percent": 83.85212690080117,
+          "saved_sd_pp": 2.7673144480914598,
+          "display_scale": 1,
+          "mean_display": "83.852",
+          "sample_sd_display": "2.767",
+          "bold": false,
+          "tex": "$83.852 \\pm 2.767$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+          "field": "summary/FPR",
+          "saved_mean_percent": 8.762082943560962,
+          "saved_sd_pp": 4.319662764147189,
+          "display_scale": 1,
+          "mean_display": "8.762",
+          "sample_sd_display": "4.320",
+          "bold": false,
+          "tex": "$8.762 \\pm 4.320$"
+        }
+      }
+    },
+    {
+      "method": "HGT-only",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Practical HGT (ours, graph branch)/average_precision",
+          "saved_mean": 0.9561309091831196,
+          "saved_sd": 0.008634542420124696,
+          "display_scale": 100,
+          "mean_display": "95.613",
+          "sample_sd_display": "0.863",
+          "bold": false,
+          "tex": "$95.613 \\pm 0.863$"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Practical HGT (ours, graph branch)/recall",
+          "saved_mean": 0.8791312559017941,
+          "saved_sd": 0.04802885732211336,
+          "display_scale": 100,
+          "mean_display": "87.913",
+          "sample_sd_display": "4.803",
+          "bold": false,
+          "tex": "$87.913 \\pm 4.803$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Practical HGT (ours, graph branch)/f1",
+          "saved_mean": 0.8848078957813685,
+          "saved_sd": 0.01745534760866559,
+          "display_scale": 100,
+          "mean_display": "88.481",
+          "sample_sd_display": "1.746",
+          "bold": false,
+          "tex": "$88.481 \\pm 1.746$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/Practical HGT (ours, graph branch)/fpr",
+          "saved_mean": 0.10632990333645151,
+          "saved_sd": 0.034628637636113055,
+          "display_scale": 100,
+          "mean_display": "10.633",
+          "sample_sd_display": "3.463",
+          "bold": false,
+          "tex": "$10.633 \\pm 3.463$"
+        }
+      }
+    },
+    {
+      "method": "ModernBERT-only",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/ModernBERT (auxiliary sequence branch)/average_precision",
+          "saved_mean": 0.9691719852448252,
+          "saved_sd": 0.004812584937295534,
+          "display_scale": 100,
+          "mean_display": "96.917",
+          "sample_sd_display": "0.481",
+          "bold": false,
+          "tex": "$96.917 \\pm 0.481$"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/ModernBERT (auxiliary sequence branch)/recall",
+          "saved_mean": 0.8888888888888888,
+          "saved_sd": 0.03143686552634274,
+          "display_scale": 100,
+          "mean_display": "88.889",
+          "sample_sd_display": "3.144",
+          "bold": false,
+          "tex": "$88.889 \\pm 3.144$"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/ModernBERT (auxiliary sequence branch)/f1",
+          "saved_mean": 0.911837740628624,
+          "saved_sd": 0.01664542281658615,
+          "display_scale": 100,
+          "mean_display": "91.184",
+          "sample_sd_display": "1.665",
+          "bold": false,
+          "tex": "$91.184 \\pm 1.665$"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/ModernBERT (auxiliary sequence branch)/fpr",
+          "saved_mean": 0.05986903648269411,
+          "saved_sd": 0.013843450502290681,
+          "display_scale": 100,
+          "mean_display": "5.987",
+          "sample_sd_display": "1.384",
+          "bold": false,
+          "tex": "$5.987 \\pm 1.384$"
+        }
+      }
+    },
+    {
+      "method": "PSHGuard",
+      "reporting": "three-run mean and sample SD",
+      "cells": {
+        "AP": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/HGT plus ModernBERT (ours)/average_precision",
+          "saved_mean": 0.98237168379295,
+          "saved_sd": 0.0028902626486132523,
+          "display_scale": 100,
+          "mean_display": "98.237",
+          "sample_sd_display": "0.289",
+          "bold": true,
+          "tex": "{\\boldmath$98.237 \\pm 0.289$}"
+        },
+        "Recall": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/HGT plus ModernBERT (ours)/recall",
+          "saved_mean": 0.9090336795719232,
+          "saved_sd": 0.024917968502379338,
+          "display_scale": 100,
+          "mean_display": "90.903",
+          "sample_sd_display": "2.492",
+          "bold": true,
+          "tex": "{\\boldmath$90.903 \\pm 2.492$}"
+        },
+        "F1": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/HGT plus ModernBERT (ours)/f1",
+          "saved_mean": 0.9253828062382694,
+          "saved_sd": 0.01238342515877137,
+          "display_scale": 100,
+          "mean_display": "92.538",
+          "sample_sd_display": "1.238",
+          "bold": true,
+          "tex": "{\\boldmath$92.538 \\pm 1.238$}"
+        },
+        "FPR": {
+          "source": "experiment_outputs/train_final_v10c_filtered700k_20260612/s10c_one_shot_exact_v2_final_test_0d1db4ed7110/corrigenda/report_overlay_v3/stages/70_report/s10_exact_v2_final_test_results.json",
+          "field": "learned/HGT plus ModernBERT (ours)/fpr",
+          "saved_mean": 0.054879950109136266,
+          "saved_sd": 0.0062285576412342315,
+          "display_scale": 100,
+          "mean_display": "5.488",
+          "sample_sd_display": "0.623",
+          "bold": false,
+          "tex": "$5.488 \\pm 0.623$"
+        }
+      }
+    }
+  ],
+  "row_count": 10,
+  "metric_order": [
+    "AP",
+    "Recall",
+    "F1",
+    "FPR"
+  ],
+  "population": 2128,
+  "components": 1573,
+  "paired_comparisons": {
+    "f1_fusion_minus_graph": {
+      "saved_point_delta": 0.04057491045690087,
+      "saved_lower": 0.013862997751427754,
+      "saved_upper": 0.06756478082807175,
+      "point_pp": "4.057",
+      "lower_pp": "1.386",
+      "upper_pp": "6.756"
+    },
+    "f1_fusion_minus_modernbert": {
+      "saved_point_delta": 0.013545065609645413,
+      "saved_lower": -2.5180761222037796e-05,
+      "saved_upper": 0.027824696014799793,
+      "point_pp": "1.355",
+      "lower_pp": "-0.0025",
+      "upper_pp": "2.782"
+    },
+    "recall_fusion_minus_modernbert": {
+      "saved_point_delta": 0.02014479068303432,
+      "saved_lower": 0.006276056897766913,
+      "saved_upper": 0.03719923961761601,
+      "point_pp": "2.014",
+      "lower_pp": "0.628",
+      "upper_pp": "3.720"
+    }
+  },
+  "old_table_equality_checks": [
+    {
+      "method": "Bandit4Mal",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "GuardDog",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "OSSGadget",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "VirusTotal",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "Cerebro",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "EA4MP",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "PyPIMalDet",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "PSHGuard",
+      "old_source": "w4_external_ranking_rows.tex",
+      "metrics": [
+        "AP"
+      ]
+    },
+    {
+      "method": "Bandit4Mal",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "GuardDog",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "OSSGadget",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "VirusTotal",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "Cerebro",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "EA4MP",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "PyPIMalDet",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    },
+    {
+      "method": "PSHGuard",
+      "old_source": "w4_external_decision_rows.tex",
+      "metrics": [
+        "Recall",
+        "F1",
+        "FPR"
+      ]
+    }
+  ],
+  "per_sample_predictions_read": false,
+  "new_metric_or_SD_or_CI_computation": false,
+  "only_transformations": "Saved aggregate selection, percentage-unit conversion and display rounding.",
+  "paired_delta_policy": "Use saved point_deltas, not rounded table subtraction or bootstrap means.",
+  "fixed_row_and_bold_policy": "Predefined rows and best-mean highlighting inherited from the old tables; no model/threshold/seed selection."
+}

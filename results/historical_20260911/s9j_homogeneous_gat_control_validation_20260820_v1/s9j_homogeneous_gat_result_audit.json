@@ -1,0 +1,319 @@
+{
+  "artifact": {
+    "name": "S9-J homogeneous GAT post-training result audit",
+    "status": "complete",
+    "date": "2026-08-21"
+  },
+  "scope": {
+    "validation_only": true,
+    "test_path_constructed": false,
+    "test_read": false,
+    "test_evaluated": false
+  },
+  "population": {
+    "rows": 2137,
+    "benign": 1082,
+    "malicious": 1055,
+    "components": 1588,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ]
+  },
+  "raw_three_seed_summary": {
+    "practical": {
+      "average_precision": {
+        "mean": 0.9576065436640399,
+        "sample_standard_deviation": 0.006845037628603821,
+        "minimum": 0.9510342299937344,
+        "maximum": 0.9646950760594627
+      },
+      "auroc": {
+        "mean": 0.9480752103208324,
+        "sample_standard_deviation": 0.009026574861028591,
+        "minimum": 0.9410105912344177,
+        "maximum": 0.9582443430193341
+      },
+      "precision": {
+        "mean": 0.9890640198307011,
+        "sample_standard_deviation": 0.010192698614186622,
+        "minimum": 0.9781209781209781,
+        "maximum": 0.9982876712328768
+      },
+      "recall": {
+        "mean": 0.6281200631911533,
+        "sample_standard_deviation": 0.08513058597993527,
+        "minimum": 0.5526066350710901,
+        "maximum": 0.7203791469194313
+      },
+      "f1": {
+        "mean": 0.7657528223552256,
+        "sample_standard_deviation": 0.05972372454224722,
+        "minimum": 0.7114093959731544,
+        "maximum": 0.8296943231441047
+      }
+    },
+    "homogeneous_gat": {
+      "average_precision": {
+        "mean": 0.9546879483646769,
+        "sample_standard_deviation": 0.006500294534189554,
+        "minimum": 0.9483024589428773,
+        "maximum": 0.9612972663097221
+      },
+      "auroc": {
+        "mean": 0.941628632250265,
+        "sample_standard_deviation": 0.009286200588058178,
+        "minimum": 0.9340522641063154,
+        "maximum": 0.9519881560389308
+      },
+      "precision": {
+        "mean": 0.9857516483650786,
+        "sample_standard_deviation": 0.0032377536982622322,
+        "minimum": 0.9835858585858586,
+        "maximum": 0.9894736842105263
+      },
+      "recall": {
+        "mean": 0.7001579778830963,
+        "sample_standard_deviation": 0.04587455767351439,
+        "minimum": 0.6492890995260664,
+        "maximum": 0.738388625592417
+      },
+      "f1": {
+        "mean": 0.8181967459559712,
+        "sample_standard_deviation": 0.03187269314345958,
+        "minimum": 0.7824100513992005,
+        "maximum": 0.8435300487276665
+      }
+    }
+  },
+  "raw_ap_hierarchical_bootstrap_practical_minus_homogeneous_gat": {
+    "mean": 0.0028367432005272,
+    "sample_standard_deviation": 0.0072069636456380684,
+    "ci95_percentile_lower": -0.010298849211025826,
+    "median": 0.002419990861870484,
+    "ci95_percentile_upper": 0.018483532741173522,
+    "probability_delta_positive": 0.65055,
+    "replicates": 20000,
+    "components": 1588,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ]
+  },
+  "component_oof_graph": {
+    "practical_hgt": {
+      "precision": 0.9223300970873787,
+      "recall": 0.9004739336492891,
+      "f1": 0.9112709832134294,
+      "fpr": 0.07393715341959335,
+      "tn": 1002,
+      "fp": 80,
+      "fn": 105,
+      "tp": 950,
+      "average_precision": 0.9682061797778396,
+      "auroc": 0.962320084799958
+    },
+    "homogeneous_gat": {
+      "precision": 0.9047141424272819,
+      "recall": 0.8549763033175355,
+      "f1": 0.8791423001949317,
+      "fpr": 0.0878003696857671,
+      "tn": 987,
+      "fp": 95,
+      "fn": 153,
+      "tp": 902,
+      "average_precision": 0.9626274486080266,
+      "auroc": 0.9544682043959316
+    },
+    "homogeneous_gat_fold_diagnostics": {
+      "candidate": "separate_platt_mean",
+      "oof_average_precision": 0.9626274486080266,
+      "oof_auroc": 0.9544682043959316,
+      "oof_accuracy": 0.883949461862424,
+      "oof_precision": 0.9047141424272819,
+      "oof_recall": 0.8549763033175355,
+      "oof_f1": 0.8791423001949317,
+      "oof_tn": 987,
+      "oof_fp": 95,
+      "oof_fn": 153,
+      "oof_tp": 902,
+      "oof_brier_score": 0.08251655117426761,
+      "oof_ece_10_equal_width": 0.04118586010126822,
+      "fold_threshold_min": 0.3069858778202776,
+      "fold_threshold_max": 0.3469620711036547,
+      "fold_threshold_range": 0.03997619328337709,
+      "fold_threshold_mean": 0.32291553623661984,
+      "fold_f1_min": 0.8387096774193549,
+      "fold_f1_max": 0.9102040816326531,
+      "sdist_rows": 693,
+      "sdist_components": 413,
+      "sdist_row_recall": 0.7936507936507936,
+      "sdist_component_macro_recall": 0.8087167070217918,
+      "datadog_rows": 362,
+      "datadog_components": 104,
+      "datadog_row_recall": 0.9723756906077348,
+      "datadog_component_macro_recall": 0.9798311444652908
+    },
+    "bootstrap_practical_minus_gat": {
+      "precision": {
+        "mean": 0.017691481509653387,
+        "sample_standard_deviation": 0.0071115554819117365,
+        "ci95_percentile_lower": 0.0042233972638717225,
+        "median": 0.01749957837978089,
+        "ci95_percentile_upper": 0.032176354147255545,
+        "probability_gt_zero": 0.9952,
+        "replicates": 20000
+      },
+      "recall": {
+        "mean": 0.044775868384779496,
+        "sample_standard_deviation": 0.024905494414792617,
+        "ci95_percentile_lower": 0.006236682740832173,
+        "median": 0.04166666666666663,
+        "ci95_percentile_upper": 0.10065855244978873,
+        "probability_gt_zero": 0.9954,
+        "replicates": 20000
+      },
+      "f1": {
+        "mean": 0.03194115122125108,
+        "sample_standard_deviation": 0.014702890398823637,
+        "ci95_percentile_lower": 0.008827893036230798,
+        "median": 0.03016783010420626,
+        "ci95_percentile_upper": 0.06503103369568641,
+        "probability_gt_zero": 0.99945,
+        "replicates": 20000
+      },
+      "fpr": {
+        "mean": -0.013835257934797852,
+        "sample_standard_deviation": 0.006610070232322602,
+        "ci95_percentile_lower": -0.02695167286245352,
+        "median": -0.013805801359105856,
+        "ci95_percentile_upper": -0.0009259259259259273,
+        "probability_gt_zero": 0.0148,
+        "replicates": 20000
+      }
+    }
+  },
+  "same_seed_pair_fusion_summary": {
+    "practical_plus_modernbert": {
+      "average_precision": {
+        "mean": 0.9869640637976308,
+        "sample_standard_deviation": 0.0011794658152538082,
+        "minimum": 0.9856890732939647,
+        "maximum": 0.9880162143533288
+      },
+      "auroc": {
+        "mean": 0.9841481896785836,
+        "sample_standard_deviation": 0.0011886064741291526,
+        "minimum": 0.9829366365603455,
+        "maximum": 0.9853124370351553
+      },
+      "precision": {
+        "mean": 0.9595912027405723,
+        "sample_standard_deviation": 0.012661081466961889,
+        "minimum": 0.9467680608365019,
+        "maximum": 0.9720837487537388
+      },
+      "recall": {
+        "mean": 0.9330173775671406,
+        "sample_standard_deviation": 0.010135238503851774,
+        "minimum": 0.9241706161137441,
+        "maximum": 0.9440758293838862
+      },
+      "f1": {
+        "mean": 0.9460271505441075,
+        "sample_standard_deviation": 0.0013020355206624487,
+        "minimum": 0.9451395572666025,
+        "maximum": 0.9475218658892129
+      }
+    },
+    "homogeneous_gat_plus_modernbert": {
+      "average_precision": {
+        "mean": 0.9875113745226202,
+        "sample_standard_deviation": 0.0008901105084791683,
+        "minimum": 0.986924671810832,
+        "maximum": 0.9885355689966253
+      },
+      "auroc": {
+        "mean": 0.9845835778924408,
+        "sample_standard_deviation": 0.000792561195425748,
+        "minimum": 0.9839248013596027,
+        "maximum": 0.9854631146463894
+      },
+      "precision": {
+        "mean": 0.96569596819963,
+        "sample_standard_deviation": 0.0032112351720758616,
+        "minimum": 0.9630709426627794,
+        "maximum": 0.9692765113974232
+      },
+      "recall": {
+        "mean": 0.9333333333333332,
+        "sample_standard_deviation": 0.006167210520045231,
+        "minimum": 0.9270142180094787,
+        "maximum": 0.9393364928909953
+      },
+      "f1": {
+        "mean": 0.9492234501807563,
+        "sample_standard_deviation": 0.0017083165427199526,
+        "minimum": 0.9476744186046511,
+        "maximum": 0.9510556621880999
+      }
+    }
+  },
+  "same_seed_pair_fusion_bootstrap_gat_minus_practical": {
+    "precision": {
+      "mean": 0.006130928621329538,
+      "sample_standard_deviation": 0.006261973644972728,
+      "ci95_percentile_lower": -0.005052364213947847,
+      "median": 0.005792008900394312,
+      "ci95_percentile_upper": 0.01967446517122029,
+      "probability_gt_zero": 0.8385,
+      "replicates": 20000
+    },
+    "recall": {
+      "mean": 0.000347552689853417,
+      "sample_standard_deviation": 0.006311715408482529,
+      "ci95_percentile_lower": -0.013220138962936504,
+      "median": 0.0006504071231318945,
+      "ci95_percentile_upper": 0.011788246481017978,
+      "probability_gt_zero": 0.5373,
+      "replicates": 20000
+    },
+    "f1": {
+      "mean": 0.00322665526323853,
+      "sample_standard_deviation": 0.0032227650596526737,
+      "ci95_percentile_lower": -0.0032850362868874798,
+      "median": 0.0032236227104307513,
+      "ci95_percentile_upper": 0.009632789973592881,
+      "probability_gt_zero": 0.857,
+      "replicates": 20000
+    },
+    "fpr": {
+      "mean": -0.006130265851295248,
+      "sample_standard_deviation": 0.0062523119991083325,
+      "ci95_percentile_lower": -0.019337016574585635,
+      "median": -0.005805071799572261,
+      "ci95_percentile_upper": 0.004970719778021989,
+      "probability_gt_zero": 0.159,
+      "replicates": 20000
+    }
+  },
+  "historical_relation_shared_context": {
+    "practical_oof_f1": 0.9112709832,
+    "relation_shared_oof_f1": 0.8932,
+    "homogeneous_gat_oof_f1": 0.8791423001949317,
+    "note": "relation-shared value is a frozen historical P5-B result; no recomputation or test access"
+  },
+  "interpretation": {
+    "graph_branch": "Practical HGT has the stronger three-seed calibrated graph operating point; relation-aware heterogeneity mainly improves recall/F1 rather than producing a large raw-AP gap.",
+    "fusion": "The homogeneous-GAT pair has a small descriptive mean advantage, but it is not a promotion search and requires its paired interval to exclude zero before any superiority claim.",
+    "paper_claim_limit": "Use S9-J as a fair architectural control. Do not claim every relation-specific parameter is independently necessary, and do not replace the frozen main model from this control alone."
+  },
+  "input_sha256": {
+    "scripts/formal_training_v10c_20260612/s9j_homogeneous_gat_control_spec_v1.json": "3b0ece54b9be71937b28cc0adfe41931d31db3bc54a62c12d7fc6778f60d1ae7",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p4_calibrated_ensemble_validation_20260808_v1/p4_calibrated_ensemble_oof_predictions.csv": "f46eb868cd592124cea56e35d3640deeea19319728d760cc28c91715b2f8bc03",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s8a_same_seed_paired_fusion_validation_20260818_v1/s8a_same_seed_paired_fusion_audit.json": "2886c04431f12464f5f01bc226a28de8683ba5855148eb7fdaf65be21acf26e8",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s8a_same_seed_paired_fusion_validation_20260818_v1/s8a_same_seed_paired_fusion_oof_predictions.csv": "e81199ed8571cc383dc36af21830f28a15045955f40569c8e00bcb11de6be7ad"
+  }
+}

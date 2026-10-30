@@ -1,0 +1,164 @@
+{
+  "completed_at": "2026-09-05T19:13:37.603827+00:00",
+  "component_id_mismatches": 0,
+  "distributions": [
+    {
+      "components": 11813,
+      "maximum": 5319,
+      "mean": 1.7673749259290612,
+      "median": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 4.0,
+      "rows": 20878,
+      "singleton_components": 11406,
+      "split": "all"
+    },
+    {
+      "components": 1573,
+      "maximum": 45,
+      "mean": 1.3528289891926255,
+      "median": 1.0,
+      "p90": 2.0,
+      "p95": 2.0,
+      "p99": 8.0,
+      "rows": 2128,
+      "singleton_components": 1406,
+      "split": "test"
+    },
+    {
+      "components": 8652,
+      "maximum": 5319,
+      "mean": 1.9201340730466945,
+      "median": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 2.0,
+      "rows": 16613,
+      "singleton_components": 8533,
+      "split": "train"
+    },
+    {
+      "components": 1588,
+      "maximum": 48,
+      "mean": 1.3457178841309825,
+      "median": 1.0,
+      "p90": 1.0,
+      "p95": 2.0,
+      "p99": 10.0,
+      "rows": 2137,
+      "singleton_components": 1467,
+      "split": "val"
+    }
+  ],
+  "elapsed_seconds": 3.7435488400001304,
+  "formal_components": 11813,
+  "formal_components_split_if_excluded_nodes_removed": 0,
+  "formal_cross_split_components": 0,
+  "formal_mixed_label_components": 0,
+  "formal_rows": 20878,
+  "full_relation_components": 11819,
+  "giant": {
+    "archive_channels": {
+      "external_datadog_samples": 517,
+      "sdist_malicious": 4802
+    },
+    "author_review": "NEEDS_AUTHOR_REVIEW",
+    "author_review_packet_rows": 40,
+    "collection_sources": {
+      "datadog": 1,
+      "guo": 5318
+    },
+    "component": "source_clone_component_v2_10776",
+    "distance_distribution": {
+      "0": 1,
+      "1": 5318
+    },
+    "distinct_direct_neighbor_max": 5318,
+    "distinct_direct_neighbor_min": 5318,
+    "fixed_reference_package": "datadog__selfhackedrandomstudy__4.59",
+    "labels": {
+      "malicious": 5319
+    },
+    "package_articulation_count": 0,
+    "package_articulations": [],
+    "rows": 5319,
+    "semantic_family_equivalence": "NOT_ESTABLISHED_BY_FINGERPRINT_ALONE",
+    "single_shared_groups_covering_every_member": [
+      {
+        "group_index": 0,
+        "implied_pair_edges": 14143221,
+        "incidence_group_articulation": true,
+        "packages": 5319,
+        "relation": "abstract_ast_corpus_digest",
+        "value": "5e688009ac402861ebe38d37bc8c0a6341c8b63b62b8e6aa36f0c0c22b0b01f9"
+      }
+    ],
+    "unique_values": {
+      "abstract_ast_corpus_digest": 1,
+      "archive_sha256": 5319,
+      "concrete_ast_corpus_digest": 5319,
+      "group_key": 5319,
+      "lexical_corpus_digest": 5319,
+      "package_name": 5318,
+      "raw_corpus_digest": 5319,
+      "version": 988
+    }
+  },
+  "historical_full_mixed_label_components": 1,
+  "historically_excluded_mixed_label_rows": 2,
+  "no_split_model_or_threshold_changes": true,
+  "peak_process_rss_mib": 248.859375,
+  "relation_universe_rows": 20885,
+  "simulation_summary": {
+    "cross_split_components": {
+      "maximum": 237,
+      "mean": 219.26,
+      "minimum": 195
+    },
+    "packages_in_cross_split_components": {
+      "maximum": 9033,
+      "mean": 8961.6,
+      "minimum": 8882
+    },
+    "test_packages_with_component_in_train": {
+      "maximum": 995,
+      "mean": 972.37,
+      "minimum": 953
+    },
+    "train_test_shared_components": {
+      "maximum": 154,
+      "mean": 136.45,
+      "minimum": 103
+    },
+    "train_val_shared_components": {
+      "maximum": 157,
+      "mean": 137.27,
+      "minimum": 118
+    },
+    "validation_packages_with_component_in_train": {
+      "maximum": 987,
+      "mean": 967.18,
+      "minimum": 941
+    }
+  },
+  "status": "COMPLETE_WITH_AUTHOR_REVIEW_PENDING",
+  "weight_summary": [
+    {
+      "label": "benign",
+      "largest_component": "source_clone_component_v2_09893",
+      "largest_unweighted_share": 0.000706547338671691,
+      "largest_weighted_share": 0.00028882138586758884,
+      "top10_unweighted_share": 0.00317946302402261,
+      "top10_weighted_share_same_components": 0.0018847645423463327
+    },
+    {
+      "label": "malicious",
+      "largest_component": "source_clone_component_v2_10776",
+      "largest_unweighted_share": 0.6549685999261174,
+      "largest_weighted_share": 0.15546267129979616,
+      "top10_unweighted_share": 0.9325206255387267,
+      "top10_weighted_share_same_components": 0.4167450849411928
+    }
+  ]
+}

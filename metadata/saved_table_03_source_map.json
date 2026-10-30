@@ -1,0 +1,1622 @@
+{
+  "stage": "screening_applicability_batch04",
+  "operation": "saved aggregate selection and unit/display conversion only",
+  "validation_population": {
+    "packages": 2137,
+    "components": 1588
+  },
+  "protocol": {
+    "protocol_id": "PSHGuard_Frontiers_joint_size_validation_20261015_v1",
+    "status_at_freeze": "RULES_FIXED_BEFORE_NEW_JOINT_RESULTS_NOT_EXECUTED",
+    "design": "post_hoc_observational_validation_diagnostic",
+    "input_csv": "paper1015-Frontiers/analysis/audits/20261015_validation_inputs_v3/validation_inputs_joined.csv",
+    "input_audit": "paper1015-Frontiers/analysis/audits/20261015_validation_inputs_v3/audit_result.json",
+    "population_rows": 2137,
+    "population_components": 1588,
+    "contrasts": [
+      "guo_vs_benign",
+      "datadog_vs_benign"
+    ],
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ],
+    "systems": [
+      "graph",
+      "modernbert",
+      "same_seed_pair",
+      "saved_fixed_LR"
+    ],
+    "primary_file_count_column": "graph_original_py_files",
+    "sensitivity_file_count_column": "fingerprint_python_file_count",
+    "file_count_bins": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        16
+      ],
+      [
+        17,
+        null
+      ]
+    ],
+    "source_byte_column": "total_python_bytes",
+    "source_byte_bins": [
+      [
+        0,
+        4096
+      ],
+      [
+        4097,
+        32768
+      ],
+      [
+        32769,
+        null
+      ]
+    ],
+    "minimum_rows_per_class_per_cell": 5,
+    "minimum_components_per_class_per_cell": 2,
+    "weights": "m_c=min(n_0c,n_1c); each row in class y cell c has weight m_c/n_yc; excluded cells zero",
+    "views": [
+      "raw_unweighted",
+      "retained_unweighted",
+      "retained_overlap_weighted"
+    ],
+    "weighted_positive_prevalence": 0.5,
+    "ranking_metrics": [
+      "auroc",
+      "average_precision"
+    ],
+    "classification_metrics": [
+      "recall",
+      "fpr",
+      "precision",
+      "f1"
+    ],
+    "LR_classification_metrics": false,
+    "classification_policy": "reuse stored binary predictions only",
+    "primary_metric": "auroc",
+    "ranking_comparisons": [
+      "graph_minus_LR",
+      "modernbert_minus_LR",
+      "same_seed_pair_minus_LR",
+      "same_seed_pair_minus_modernbert"
+    ],
+    "classification_comparisons": [
+      "same_seed_pair_minus_modernbert"
+    ],
+    "bootstrap": {
+      "replicates": 2000,
+      "rng": "numpy.random.Generator(PCG64(20261015))",
+      "resampling_unit": "all 1588 validation components jointly, then filter each contrast",
+      "shared_draws_across_contrasts_models_seeds_views": true,
+      "components_per_draw": 1588,
+      "eligible_cells": "fixed from original data",
+      "weights_per_draw": "recompute overlap weights with component multiplicities, keeping eligible cells fixed",
+      "empty_class_in_any_retained_cell": "invalidate standardized draw for that contrast",
+      "minimum_components_per_class_for_CI": 20,
+      "minimum_class_ESS_for_CI": 20,
+      "minimum_valid_fraction": 0.95,
+      "CI_quantiles": [
+        0.025,
+        0.975
+      ],
+      "quantile_method": "linear",
+      "seed_resampling": false,
+      "interpretation": "conditional on saved models and OOF predictions; excludes retraining, calibration and label uncertainty"
+    },
+    "sensitivity": {
+      "runs": 1,
+      "change": "file count column only",
+      "outputs": "all support, balance and point estimates",
+      "bootstrap": false,
+      "selection_of_preferred_definition_by_results": false
+    },
+    "failure_states": [
+      "NO_ELIGIBLE_SUPPORT",
+      "LOW_SUPPORT",
+      "BOOTSTRAP_UNSTABLE",
+      "INPUT_INTEGRITY_FAILURE"
+    ],
+    "output_parent": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts",
+    "model_fitting_allowed": false,
+    "new_inference_allowed": false,
+    "threshold_selection_allowed": false,
+    "test_predictions_allowed": false,
+    "manuscript_editing_in_analysis_batch": false,
+    "negative_results_must_be_retained": true,
+    "causal_semantic_contribution_claim_allowed": false,
+    "independent_label_verification_claim_allowed": false
+  },
+  "views": [
+    "raw_unweighted",
+    "retained_unweighted",
+    "retained_overlap_weighted"
+  ],
+  "coverage_rows": [
+    {
+      "contrast": "guo_vs_benign",
+      "label": "Guo",
+      "eligible_cells": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "class_records": [
+        {
+          "selector": {
+            "definition": "primary",
+            "contrast": "guo_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "0"
+          },
+          "saved": {
+            "definition": "primary",
+            "contrast": "guo_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "0",
+            "original_rows": "1082",
+            "retained_rows": "1074",
+            "excluded_rows": "8",
+            "retention_fraction": "0.9926062846580407",
+            "original_components": "1080",
+            "retained_components": "1072",
+            "weight_sum": "364.0",
+            "class_ESS": "610.6693460796303",
+            "max_component_weight_share": "0.008241758241758242",
+            "status": "OK"
+          }
+        },
+        {
+          "selector": {
+            "definition": "primary",
+            "contrast": "guo_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "1"
+          },
+          "saved": {
+            "definition": "primary",
+            "contrast": "guo_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "1",
+            "original_rows": "789",
+            "retained_rows": "759",
+            "excluded_rows": "30",
+            "retention_fraction": "0.9619771863117871",
+            "original_components": "461",
+            "retained_components": "440",
+            "weight_sum": "364.0",
+            "class_ESS": "460.239293470814",
+            "max_component_weight_share": "0.06868131868131869",
+            "status": "OK"
+          }
+        }
+      ],
+      "validity_record": {
+        "selector": {
+          "contrast": "guo_vs_benign",
+          "view": "retained_overlap_weighted"
+        },
+        "saved": {
+          "contrast": "guo_vs_benign",
+          "view": "retained_overlap_weighted",
+          "replicates": "2000",
+          "valid": "1967",
+          "valid_fraction": "0.9835",
+          "support_status": "OK"
+        }
+      },
+      "tex": "Guo & $9/12$ & $1074/1082\\ (99.26)$ & $759/789\\ (96.20)$ & $1072/440$ & $1967/2000$ \\\\"
+    },
+    {
+      "contrast": "datadog_vs_benign",
+      "label": "Datadog",
+      "eligible_cells": [
+        0,
+        3,
+        4,
+        8,
+        11
+      ],
+      "class_records": [
+        {
+          "selector": {
+            "definition": "primary",
+            "contrast": "datadog_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "0"
+          },
+          "saved": {
+            "definition": "primary",
+            "contrast": "datadog_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "0",
+            "original_rows": "1082",
+            "retained_rows": "887",
+            "excluded_rows": "195",
+            "retention_fraction": "0.8197781885397413",
+            "original_components": "1080",
+            "retained_components": "885",
+            "weight_sum": "100.0",
+            "class_ESS": "159.99923209280652",
+            "max_component_weight_share": "0.03",
+            "status": "OK"
+          }
+        },
+        {
+          "selector": {
+            "definition": "primary",
+            "contrast": "datadog_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "1"
+          },
+          "saved": {
+            "definition": "primary",
+            "contrast": "datadog_vs_benign",
+            "view": "retained_overlap_weighted",
+            "label": "1",
+            "original_rows": "266",
+            "retained_rows": "246",
+            "excluded_rows": "20",
+            "retention_fraction": "0.924812030075188",
+            "original_components": "60",
+            "retained_components": "50",
+            "weight_sum": "100.0",
+            "class_ESS": "165.16262888400908",
+            "max_component_weight_share": "0.1628099173553718",
+            "status": "OK"
+          }
+        }
+      ],
+      "validity_record": {
+        "selector": {
+          "contrast": "datadog_vs_benign",
+          "view": "retained_overlap_weighted"
+        },
+        "saved": {
+          "contrast": "datadog_vs_benign",
+          "view": "retained_overlap_weighted",
+          "replicates": "2000",
+          "valid": "1719",
+          "valid_fraction": "0.8595",
+          "support_status": "OK"
+        }
+      },
+      "tex": "Datadog & $5/12$ & $887/1082\\ (81.98)$ & $246/266\\ (92.48)$ & $885/50$ & $1719/2000$ \\\\"
+    }
+  ],
+  "AUROC_rows": [
+    {
+      "system": "saved_fixed_LR",
+      "label": "Fixed LR",
+      "cells": {
+        "guo_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.8439131870989507",
+                "sample_seed_sd": "",
+                "ci95_lower": "0.7969822369590757",
+                "ci95_upper": "0.8814535863172286",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.8383519430398225",
+                "sample_seed_sd": "",
+                "ci95_lower": "0.790129767845393",
+                "ci95_upper": "0.877512285002522",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.5545974124660079",
+                "sample_seed_sd": "",
+                "ci95_lower": "0.5382255921137604",
+                "ci95_upper": "0.577044621798595",
+                "bootstrap_valid": "1967",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            }
+          ],
+          "points_display": [
+            "0.8439",
+            "0.8384",
+            "0.5546"
+          ],
+          "weighted_CI_display": [
+            "0.5382",
+            "0.5770"
+          ],
+          "weighted_status": "OK",
+          "tex": "$0.8439 \\to 0.8384 \\to 0.5546\\ [0.5382,\\, 0.5770]$"
+        },
+        "datadog_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.8859324837046405",
+                "sample_seed_sd": "",
+                "ci95_lower": "0.8453144301745856",
+                "ci95_upper": "0.9192770536565935",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.8956792330042804",
+                "sample_seed_sd": "",
+                "ci95_lower": "0.8529796867845861",
+                "ci95_upper": "0.9275855283165795",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "saved_fixed_LR",
+                "seed": "single_fixed",
+                "metric": "auroc",
+                "point": "0.48656260730814865",
+                "sample_seed_sd": "",
+                "ci95_lower": "",
+                "ci95_upper": "",
+                "bootstrap_valid": "1719",
+                "bootstrap_total": "2000",
+                "status": "BOOTSTRAP_UNSTABLE"
+              }
+            }
+          ],
+          "points_display": [
+            "0.8859",
+            "0.8957",
+            "0.4866"
+          ],
+          "weighted_CI_display": null,
+          "weighted_status": "BOOTSTRAP_UNSTABLE",
+          "tex": "$0.8859 \\to 0.8957 \\to 0.4866\\ [\\mathrm{NA}]$"
+        }
+      },
+      "tex": "Fixed LR & $0.8439 \\to 0.8384 \\to 0.5546\\ [0.5382,\\, 0.5770]$ & $0.8859 \\to 0.8957 \\to 0.4866\\ [\\mathrm{NA}]$ \\\\"
+    },
+    {
+      "system": "graph",
+      "label": "HGT",
+      "cells": {
+        "guo_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9296117206162678",
+                "sample_seed_sd": "0.012407989737870351",
+                "ci95_lower": "0.9083513983338647",
+                "ci95_upper": "0.9474489767575413",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9272704373505928",
+                "sample_seed_sd": "0.012560745122911571",
+                "ci95_lower": "0.9056197462882436",
+                "ci95_upper": "0.9458460406951494",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9013010156506441",
+                "sample_seed_sd": "0.023648325368036776",
+                "ci95_lower": "0.8742307551803171",
+                "ci95_upper": "0.9252618159831207",
+                "bootstrap_valid": "1967",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9296",
+            "0.9273",
+            "0.9013"
+          ],
+          "weighted_CI_display": [
+            "0.8742",
+            "0.9253"
+          ],
+          "weighted_status": "OK",
+          "tex": "$0.9296 \\to 0.9273 \\to 0.9013\\ [0.8742,\\, 0.9253]$"
+        },
+        "datadog_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9961467902658679",
+                "sample_seed_sd": "0.0025719185392380516",
+                "ci95_lower": "0.9914342164210059",
+                "ci95_upper": "0.9992625685609465",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9957653917012678",
+                "sample_seed_sd": "0.0027653330090335326",
+                "ci95_lower": "0.9906973650914971",
+                "ci95_upper": "0.9992187989646432",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "graph",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9797333269541815",
+                "sample_seed_sd": "0.012513498365739905",
+                "ci95_lower": "",
+                "ci95_upper": "",
+                "bootstrap_valid": "1719",
+                "bootstrap_total": "2000",
+                "status": "BOOTSTRAP_UNSTABLE"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9961",
+            "0.9958",
+            "0.9797"
+          ],
+          "weighted_CI_display": null,
+          "weighted_status": "BOOTSTRAP_UNSTABLE",
+          "tex": "$0.9961 \\to 0.9958 \\to 0.9797\\ [\\mathrm{NA}]$"
+        }
+      },
+      "tex": "HGT & $0.9296 \\to 0.9273 \\to 0.9013\\ [0.8742,\\, 0.9253]$ & $0.9961 \\to 0.9958 \\to 0.9797\\ [\\mathrm{NA}]$ \\\\"
+    },
+    {
+      "system": "modernbert",
+      "label": "ModernBERT",
+      "cells": {
+        "guo_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9647223022661411",
+                "sample_seed_sd": "0.0039008992606142344",
+                "ci95_lower": "0.9546113695435854",
+                "ci95_upper": "0.9738287981130858",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9644692001383767",
+                "sample_seed_sd": "0.0033164506764396338",
+                "ci95_lower": "0.9540724545767874",
+                "ci95_upper": "0.9737917774300776",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9166597011500817",
+                "sample_seed_sd": "0.008247716320504889",
+                "ci95_lower": "0.8866466516940259",
+                "ci95_upper": "0.9402547884299026",
+                "bootstrap_valid": "1967",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9647",
+            "0.9645",
+            "0.9167"
+          ],
+          "weighted_CI_display": [
+            "0.8866",
+            "0.9403"
+          ],
+          "weighted_status": "OK",
+          "tex": "$0.9647 \\to 0.9645 \\to 0.9167\\ [0.8866,\\, 0.9403]$"
+        },
+        "datadog_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9864778628641845",
+                "sample_seed_sd": "0.0042228646602753125",
+                "ci95_lower": "0.968534148964659",
+                "ci95_upper": "0.995118831369297",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9861030910196362",
+                "sample_seed_sd": "0.0044581912517035315",
+                "ci95_lower": "0.965795886843048",
+                "ci95_upper": "0.9952827815833605",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "modernbert",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9453837792681323",
+                "sample_seed_sd": "0.014415600247951571",
+                "ci95_lower": "",
+                "ci95_upper": "",
+                "bootstrap_valid": "1719",
+                "bootstrap_total": "2000",
+                "status": "BOOTSTRAP_UNSTABLE"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9865",
+            "0.9861",
+            "0.9454"
+          ],
+          "weighted_CI_display": null,
+          "weighted_status": "BOOTSTRAP_UNSTABLE",
+          "tex": "$0.9865 \\to 0.9861 \\to 0.9454\\ [\\mathrm{NA}]$"
+        }
+      },
+      "tex": "ModernBERT & $0.9647 \\to 0.9645 \\to 0.9167\\ [0.8866,\\, 0.9403]$ & $0.9865 \\to 0.9861 \\to 0.9454\\ [\\mathrm{NA}]$ \\\\"
+    },
+    {
+      "system": "same_seed_pair",
+      "label": "Fusion",
+      "cells": {
+        "guo_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "raw_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9793146991090526",
+                "sample_seed_sd": "0.0015116735529635552",
+                "ci95_lower": "0.9718641089902915",
+                "ci95_upper": "0.9854521527161737",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9787863249121447",
+                "sample_seed_sd": "0.0016441831286123645",
+                "ci95_lower": "0.9712378518014012",
+                "ci95_upper": "0.9851211428204866",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "guo_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9448389909401737",
+                "sample_seed_sd": "0.005708120395076784",
+                "ci95_lower": "0.9219997087284504",
+                "ci95_upper": "0.9625021978922177",
+                "bootstrap_valid": "1967",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9793",
+            "0.9788",
+            "0.9448"
+          ],
+          "weighted_CI_display": [
+            "0.9220",
+            "0.9625"
+          ],
+          "weighted_status": "OK",
+          "tex": "$0.9793 \\to 0.9788 \\to 0.9448\\ [0.9220,\\, 0.9625]$"
+        },
+        "datadog_vs_benign": {
+          "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+          "records": [
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "raw_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9984851222325686",
+                "sample_seed_sd": "0.000232141718739911",
+                "ci95_lower": "0.996585495371756",
+                "ci95_upper": "0.999519058137829",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_unweighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9982646049684849",
+                "sample_seed_sd": "0.00034326980688703716",
+                "ci95_lower": "0.9959837861694337",
+                "ci95_upper": "0.9994595020848007",
+                "bootstrap_valid": "2000",
+                "bootstrap_total": "2000",
+                "status": "OK"
+              }
+            },
+            {
+              "selector": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc"
+              },
+              "saved": {
+                "definition": "primary",
+                "contrast": "datadog_vs_benign",
+                "view": "retained_overlap_weighted",
+                "system": "same_seed_pair",
+                "seed": "three_seed_mean",
+                "metric": "auroc",
+                "point": "0.9820631015100977",
+                "sample_seed_sd": "0.004231091986787347",
+                "ci95_lower": "",
+                "ci95_upper": "",
+                "bootstrap_valid": "1719",
+                "bootstrap_total": "2000",
+                "status": "BOOTSTRAP_UNSTABLE"
+              }
+            }
+          ],
+          "points_display": [
+            "0.9985",
+            "0.9983",
+            "0.9821"
+          ],
+          "weighted_CI_display": null,
+          "weighted_status": "BOOTSTRAP_UNSTABLE",
+          "tex": "$0.9985 \\to 0.9983 \\to 0.9821\\ [\\mathrm{NA}]$"
+        }
+      },
+      "tex": "Fusion & $0.9793 \\to 0.9788 \\to 0.9448\\ [0.9220,\\, 0.9625]$ & $0.9985 \\to 0.9983 \\to 0.9821\\ [\\mathrm{NA}]$ \\\\"
+    }
+  ],
+  "Fusion_FPR_row": {
+    "label": "Fusion FPR (\\%)",
+    "cells": {
+      "guo_vs_benign": {
+        "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+        "records": [
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "raw_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "raw_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.03850893407270487",
+              "sample_seed_sd": "0.012949999727038634",
+              "ci95_lower": "0.029239091733022592",
+              "ci95_upper": "0.04931397801484606",
+              "bootstrap_valid": "2000",
+              "bootstrap_total": "2000",
+              "status": "OK"
+            }
+          },
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "retained_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "retained_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.038485412787088766",
+              "sample_seed_sd": "0.012572705835213591",
+              "ci95_lower": "0.029228454131556243",
+              "ci95_upper": "0.049440298507462684",
+              "bootstrap_valid": "2000",
+              "bootstrap_total": "2000",
+              "status": "OK"
+            }
+          },
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "retained_overlap_weighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "guo_vs_benign",
+              "view": "retained_overlap_weighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.08126017704075715",
+              "sample_seed_sd": "0.022558004082380463",
+              "ci95_lower": "0.05671023738130102",
+              "ci95_upper": "0.11200995921334923",
+              "bootstrap_valid": "1967",
+              "bootstrap_total": "2000",
+              "status": "OK"
+            }
+          }
+        ],
+        "points_display": [
+          "3.85",
+          "3.85",
+          "8.13"
+        ],
+        "weighted_CI_display": [
+          "5.67",
+          "11.20"
+        ],
+        "weighted_status": "OK",
+        "tex": "$3.85 \\to 3.85 \\to 8.13\\ [5.67,\\, 11.20]$"
+      },
+      "datadog_vs_benign": {
+        "source_path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+        "records": [
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "raw_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "raw_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.03850893407270487",
+              "sample_seed_sd": "0.012949999727038634",
+              "ci95_lower": "0.029239091733022592",
+              "ci95_upper": "0.04931397801484606",
+              "bootstrap_valid": "2000",
+              "bootstrap_total": "2000",
+              "status": "OK"
+            }
+          },
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "retained_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "retained_unweighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.04359263434798947",
+              "sample_seed_sd": "0.013544397813558888",
+              "ci95_lower": "0.032307107563664006",
+              "ci95_upper": "0.05631778367515991",
+              "bootstrap_valid": "2000",
+              "bootstrap_total": "2000",
+              "status": "OK"
+            }
+          },
+          {
+            "selector": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "retained_overlap_weighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr"
+            },
+            "saved": {
+              "definition": "primary",
+              "contrast": "datadog_vs_benign",
+              "view": "retained_overlap_weighted",
+              "system": "same_seed_pair",
+              "seed": "three_seed_mean",
+              "metric": "fpr",
+              "point": "0.21231421827476174",
+              "sample_seed_sd": "0.0625149929931881",
+              "ci95_lower": "",
+              "ci95_upper": "",
+              "bootstrap_valid": "1719",
+              "bootstrap_total": "2000",
+              "status": "BOOTSTRAP_UNSTABLE"
+            }
+          }
+        ],
+        "points_display": [
+          "3.85",
+          "4.36",
+          "21.23"
+        ],
+        "weighted_CI_display": null,
+        "weighted_status": "BOOTSTRAP_UNSTABLE",
+        "tex": "$3.85 \\to 4.36 \\to 21.23\\ [\\mathrm{NA}]$"
+      }
+    },
+    "tex": "Fusion FPR (\\%) & $3.85 \\to 3.85 \\to 8.13\\ [5.67,\\, 11.20]$ & $3.85 \\to 4.36 \\to 21.23\\ [\\mathrm{NA}]$ \\\\"
+  },
+  "paired_Guo_AUROC": {
+    "same_seed_pair_minus_saved_fixed_LR": {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "comparison": "same_seed_pair_minus_saved_fixed_LR",
+        "seed": "three_seed_mean",
+        "metric": "auroc"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "comparison": "same_seed_pair_minus_saved_fixed_LR",
+        "seed": "three_seed_mean",
+        "metric": "auroc",
+        "point_delta": "0.39024157847416574",
+        "ci95_lower": "0.3606939525569033",
+        "ci95_upper": "0.4137464515571548",
+        "bootstrap_valid": "1967",
+        "bootstrap_total": "2000",
+        "status": "OK"
+      },
+      "point_display": "0.39024",
+      "CI_display": [
+        "0.36069",
+        "0.41375"
+      ]
+    },
+    "same_seed_pair_minus_modernbert": {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "comparison": "same_seed_pair_minus_modernbert",
+        "seed": "three_seed_mean",
+        "metric": "auroc"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "comparison": "same_seed_pair_minus_modernbert",
+        "seed": "three_seed_mean",
+        "metric": "auroc",
+        "point_delta": "0.028179289790091988",
+        "ci95_lower": "0.017865225980720174",
+        "ci95_upper": "0.04129240167618977",
+        "bootstrap_valid": "1967",
+        "bootstrap_total": "2000",
+        "status": "OK"
+      },
+      "point_display": "0.02818",
+      "CI_display": [
+        "0.01787",
+        "0.04129"
+      ]
+    }
+  },
+  "balance_records": [
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "files"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "files",
+        "benign_mean": "2.7981688047664135",
+        "benign_sd": "1.2554996529248041",
+        "malicious_mean": "1.4467129570987822",
+        "malicious_sd": "0.8737130702446768",
+        "raw_fixed_SMD_denominator": "1.0815853890494922",
+        "absolute_SMD": "1.2495137798184421",
+        "weighted_KS": "0.6073798931237979",
+        "residual_SMD_over_0_1": "True"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "bytes"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "bytes",
+        "benign_mean": "11.270751628409137",
+        "benign_sd": "1.874402219824539",
+        "malicious_mean": "8.984694150858589",
+        "malicious_sd": "2.0854627727488966",
+        "raw_fixed_SMD_denominator": "1.9827428802298945",
+        "absolute_SMD": "1.1529772722146832",
+        "weighted_KS": "0.5121658947309236",
+        "residual_SMD_over_0_1": "True"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "files"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "files",
+        "benign_mean": "2.0773573647880577",
+        "benign_sd": "1.1673543508537776",
+        "malicious_mean": "1.9509352025259785",
+        "malicious_sd": "1.040264946006539",
+        "raw_fixed_SMD_denominator": "1.0815853890494922",
+        "absolute_SMD": "0.1168859745536875",
+        "weighted_KS": "0.103879472207344",
+        "residual_SMD_over_0_1": "True"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "bytes"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "guo_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "bytes",
+        "benign_mean": "10.144448077372532",
+        "benign_sd": "1.9950141703658948",
+        "malicious_mean": "10.056155289842565",
+        "malicious_sd": "1.9784387195325734",
+        "raw_fixed_SMD_denominator": "1.9827428802298945",
+        "absolute_SMD": "0.04453062896371624",
+        "weighted_KS": "0.12874531779353898",
+        "residual_SMD_over_0_1": "False"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "files"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "files",
+        "benign_mean": "2.7981688047664135",
+        "benign_sd": "1.2554996529248041",
+        "malicious_mean": "1.2072345415412435",
+        "malicious_sd": "0.6989533859809048",
+        "raw_fixed_SMD_denominator": "1.0160746070708773",
+        "absolute_SMD": "1.5657652028245135",
+        "weighted_KS": "0.7291148388531403",
+        "residual_SMD_over_0_1": "True"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "bytes"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "raw_unweighted",
+        "log1p_feature": "bytes",
+        "benign_mean": "11.270751628409137",
+        "benign_sd": "1.874402219824539",
+        "malicious_mean": "7.7593636614580745",
+        "malicious_sd": "1.7034953287343217",
+        "raw_fixed_SMD_denominator": "1.7909885561754455",
+        "absolute_SMD": "1.9605864899826229",
+        "weighted_KS": "0.781294734062513",
+        "residual_SMD_over_0_1": "True"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "files"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "files",
+        "benign_mean": "1.4593714279417773",
+        "benign_sd": "0.8037441014218557",
+        "malicious_mean": "1.5075866771087851",
+        "malicious_sd": "0.9702598663851829",
+        "raw_fixed_SMD_denominator": "1.0160746070708773",
+        "absolute_SMD": "0.04745246936738427",
+        "weighted_KS": "0.07373722912735026",
+        "residual_SMD_over_0_1": "False"
+      }
+    },
+    {
+      "selector": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "bytes"
+      },
+      "saved": {
+        "definition": "primary",
+        "contrast": "datadog_vs_benign",
+        "view": "retained_overlap_weighted",
+        "log1p_feature": "bytes",
+        "benign_mean": "8.579285801242529",
+        "benign_sd": "1.8809862052557302",
+        "malicious_mean": "8.48170946211605",
+        "malicious_sd": "2.125021192074598",
+        "raw_fixed_SMD_denominator": "1.7909885561754455",
+        "absolute_SMD": "0.05448183283473729",
+        "weighted_KS": "0.15514979338842982",
+        "residual_SMD_over_0_1": "False"
+      }
+    }
+  ],
+  "Guo_residual_file_SMD": "0.117",
+  "cost_values": {
+    "sequential_packages_per_second": "46.969",
+    "ModernBERT_packages_per_second": "98.744",
+    "scope": {
+      "population": "exact-V2 original validation only",
+      "packages": 2137,
+      "training": false,
+      "final_test_path_constructed": false,
+      "final_test_read": false,
+      "final_test_evaluated": false
+    },
+    "serial_estimate_note": "sum of separately measured frozen branches; conservative single-GPU sequential deployment",
+    "graph_model": "Practical HGT seed1001",
+    "sequence_model": "ModernBERT seed1001",
+    "measurement_identity": "three timing replays, not three independent training runs"
+  },
+  "calibration_ECE_percent": {
+    "same_seed_pair": "12.987",
+    "modernbert": "2.445"
+  },
+  "holdout_values_percent": {
+    "average_precision": "95.807",
+    "f1": "82.148",
+    "fpr": "0.431",
+    "recall": "70.927",
+    "ModernBERT_F1": "84.888"
+  },
+  "holdout_population": {
+    "ood_evaluation": 1348,
+    "source_calibration": 2887,
+    "source_pool": 15992,
+    "source_train": 13105
+  },
+  "holdout_archive_overlap": {
+    "clean_unseen_archive_channel_shift": false,
+    "fraction": 0.10333333333333333,
+    "ood_datadog_prefix_malicious_total": 266,
+    "ood_datadog_prefix_rows_retrieved_from_external_datadog_archive": 266,
+    "source_guo_prefix_malicious_total": 7500,
+    "source_guo_prefix_rows_retrieved_from_external_datadog_archive": 775
+  },
+  "holdout_source_identity": "prefix-defined partial malicious-source shift stress test",
+  "holdout_disjoint_components": {
+    "calibration_ood": 0,
+    "train_calibration": 0,
+    "train_ood": 0
+  },
+  "source_bindings": [
+    {
+      "name": "metrics",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/metrics.csv",
+      "sha256": "98e5bfcec9b97165f1c83b9970158def943d8149061d8f4c3dabdb69f62a4b18"
+    },
+    {
+      "name": "paired",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/paired_comparisons.csv",
+      "sha256": "3df31b379061e99df238b1041ed2f278af357d8a39b8e13c1c32a65b6391900e"
+    },
+    {
+      "name": "coverage",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/population_coverage.csv",
+      "sha256": "9114571cf03ef6de47f8b9699fedfad4435500978dbe5d71fcf955a891de8415"
+    },
+    {
+      "name": "balance",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/continuous_balance.csv",
+      "sha256": "be14c16f66ca59807c56d0982850e1ae21be0f0a5101277595a9526404436728"
+    },
+    {
+      "name": "validity",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/bootstrap_validity.csv",
+      "sha256": "e50e02ce8def6532fe5e0981caad2e005fbf1926b161a11e80fe85b1271675cc"
+    },
+    {
+      "name": "support",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/joint_cell_support.csv",
+      "sha256": "026d411a7d2ab7032a6032f32d51c56bf3d02b8548b7da69a7161909af753280"
+    },
+    {
+      "name": "complete",
+      "path": "paper1015-Frontiers/analysis/runs/joint_size_20261015_v1/attempts/20261015T131833_740493Z/complete.json",
+      "sha256": "d7d1e6ebfb2f9151fbcebfa73ae33bdd8e9efc1225f695b7be0462e0c2a149ce"
+    },
+    {
+      "name": "protocol",
+      "path": "paper1015-Frontiers/analysis/protocols/JOINT_SIZE_DIAGNOSTIC_PROTOCOL_20261015_v1.json",
+      "sha256": "3633ae102f51445b033fc27a5f3489308bb9a1dbf2cfa74063cd410197c34892"
+    },
+    {
+      "name": "freeze",
+      "path": "paper1015-Frontiers/analysis/protocols/JOINT_SIZE_DIAGNOSTIC_FREEZE_20261015_v1.json",
+      "sha256": "7fc67dd7157fb0d92af568960503e11b02f9e9cac92fc663452b2db3d2dcf2f6"
+    },
+    {
+      "name": "joint_decisions",
+      "path": "paper1015-Frontiers/planning/04_JOINT_SIZE_DIAGNOSTIC_RESULTS_20261015.md",
+      "sha256": "957fd7723a102d9a12cc762dd1ecb1328c31f87a35f5bf21d51182acf12c3810"
+    },
+    {
+      "name": "efficiency",
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9e1_controlled_efficiency_profile_20260821_v1_0_2/s9e1_controlled_efficiency_profile.json",
+      "sha256": "2791de62d92a5bd721c87775f0f177c5362b50d43f868cb7bcb6faa7de9c2cc2"
+    },
+    {
+      "name": "calibration",
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9h_calibration_fpr_error_analysis_20260821_v1_0_2/s9h_calibration_fpr_error_analysis.json",
+      "sha256": "1670a366750f436b071f743cdce6c39be3882f09eeda1666fe5629e05b933e52"
+    },
+    {
+      "name": "holdout",
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/final/s9g2_guo_to_datadog_partial_ood_result.json",
+      "sha256": "0582ccdb22fd709ebf70e5be7617fd57c0d9b44512cb1619639cf4c0e60e5a70"
+    },
+    {
+      "name": "holdout_provenance",
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/provenance_audit/s9g2_source_provenance_readonly_audit.json",
+      "sha256": "e1fe1fdeb7210a51360c31f4976d711ca355f05cc25dd172706e2483bdd10bd5"
+    },
+    {
+      "name": "holdout_population",
+      "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/frozen_population/population_audit.json",
+      "sha256": "ceec4d469d5456b517bf464dba41c10952af57ff5f3fe9100da968f67f830980"
+    },
+    {
+      "name": "efficiency_record",
+      "path": "research_state/S9E1_CONTROLLED_EFFICIENCY_PROFILE_RESULT_20260821.md",
+      "sha256": "3a5da775a0b4c20ebd7f9763573e363866afd8bb177c7b15b7b96e9123137129"
+    },
+    {
+      "name": "calibration_record",
+      "path": "research_state/S9H_CALIBRATION_FPR_ERROR_ANALYSIS_RESULT_20260821.md",
+      "sha256": "756fa01ba52fc96955fc9f4e3758f5db58befb3a75bcdee6040bc85362b11b5b"
+    },
+    {
+      "name": "holdout_record",
+      "path": "research_state/S9G2_GUO_DATADOG_PARTIAL_OOD_PREFLIGHT_20260821.md",
+      "sha256": "06f343006d4de3e2eda0c10b6ef2e617f08e8a5ecf764ff101989fb92ae09ca8"
+    },
+    {
+      "name": "baseline",
+      "path": "paper0823/manuscript/sections/05_evaluation_en.tex",
+      "sha256": "af184b3d9283c43c9e2b9d6c8efb23a699b61fd224e103b4fec497db2384cc92"
+    }
+  ],
+  "no_new_metrics_means_SDs_or_CIs": true,
+  "no_prediction_or_model_reads": true,
+  "no_threshold_or_LR_refit": true,
+  "no_final_test_or_R4_rerun": true,
+  "display_refinement": "Original, retained-unweighted and weighted AUROC/FPR together within planned T3; no new analysis."
+}

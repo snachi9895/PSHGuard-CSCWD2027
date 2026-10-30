@@ -1,0 +1,5 @@
+malicious_prevalence_percent,precision_percent,true_alerts_per_10000,false_alerts_per_10000
+50.0,94.311,4545.17,274.40
+5.0,46.687,454.52,521.36
+1.0,14.420,90.90,543.31
+0.1,1.644,9.09,548.25

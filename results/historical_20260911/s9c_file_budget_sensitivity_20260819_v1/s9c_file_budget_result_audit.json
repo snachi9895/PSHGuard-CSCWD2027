@@ -1,0 +1,296 @@
+{
+  "artifact": {
+    "name": "S9-C exact-V2 file-budget sensitivity result audit",
+    "version": "1.0.0",
+    "date": "2026-08-20",
+    "status": "complete_validation_only"
+  },
+  "scope": {
+    "budgets": [
+      4,
+      8,
+      16
+    ],
+    "seeds_per_budget": 3,
+    "validation_rows": 2137,
+    "source_clone_components": 1588,
+    "test_path_constructed": false,
+    "test_read": false,
+    "test_evaluated": false
+  },
+  "protocol": {
+    "primary": "raw validation AP mean over three paired seeds",
+    "decision": "exact P4 five-fold source-clone-component-isolated OOF calibration and outer-train F1 threshold",
+    "statistics": "paired source-clone-component bootstrap; raw AP additionally resamples training seed",
+    "reference_budget": 16,
+    "purpose": "supplementary sensitivity, not post-hoc final-budget selection"
+  },
+  "raw_three_seed_summary": {
+    "4": {
+      "average_precision": {
+        "mean": 0.956629644782541,
+        "sample_standard_deviation": 0.000496163489930371
+      },
+      "auroc": {
+        "mean": 0.9479099321658738,
+        "sample_standard_deviation": 0.0015460974620967619
+      },
+      "precision": {
+        "mean": 0.9898289571976328,
+        "sample_standard_deviation": 0.003766476966140293
+      },
+      "recall": {
+        "mean": 0.6015797788309637,
+        "sample_standard_deviation": 0.05132798424847623
+      },
+      "f1": {
+        "mean": 0.7474192244226545,
+        "sample_standard_deviation": 0.03832316100032837
+      },
+      "false_positive_rate": {
+        "mean": 0.006161429451632779,
+        "sample_standard_deviation": 0.002823521685123747
+      },
+      "training_seconds": {
+        "mean": 2021.3478973903293,
+        "sample_standard_deviation": 83.2975424428543
+      }
+    },
+    "8": {
+      "average_precision": {
+        "mean": 0.9626405078212681,
+        "sample_standard_deviation": 0.000804377126095769
+      },
+      "auroc": {
+        "mean": 0.9564915477452379,
+        "sample_standard_deviation": 0.001768860439752644
+      },
+      "precision": {
+        "mean": 0.9942235546497358,
+        "sample_standard_deviation": 0.0034891626945056918
+      },
+      "recall": {
+        "mean": 0.5589257503949447,
+        "sample_standard_deviation": 0.11258626099587256
+      },
+      "f1": {
+        "mean": 0.7107772182380048,
+        "sample_standard_deviation": 0.09589547160741559
+      },
+      "false_positive_rate": {
+        "mean": 0.003388786198398028,
+        "sample_standard_deviation": 0.0023258886122214262
+      },
+      "training_seconds": {
+        "mean": 3309.4387840006652,
+        "sample_standard_deviation": 517.4112934932089
+      }
+    },
+    "16": {
+      "average_precision": {
+        "mean": 0.9576065436640399,
+        "sample_standard_deviation": 0.006845037628603821
+      },
+      "auroc": {
+        "mean": 0.9480752103208324,
+        "sample_standard_deviation": 0.009026574861028591
+      },
+      "precision": {
+        "mean": 0.9890640198307011,
+        "sample_standard_deviation": 0.010192698614186622
+      },
+      "recall": {
+        "mean": 0.6281200631911533,
+        "sample_standard_deviation": 0.08513058597993527
+      },
+      "f1": {
+        "mean": 0.7657528223552256,
+        "sample_standard_deviation": 0.059723724542247336
+      },
+      "false_positive_rate": {
+        "mean": 0.007393715341959335,
+        "sample_standard_deviation": 0.007565021046092838
+      },
+      "training_seconds": {
+        "mean": 2543.6512701320007,
+        "sample_standard_deviation": 814.2565781448036
+      }
+    }
+  },
+  "component_isolated_oof_three_seed_ensemble": {
+    "4": {
+      "average_precision": 0.9599557963449772,
+      "auroc": 0.9531348827430333,
+      "precision": 0.9273858921161826,
+      "recall": 0.8473933649289099,
+      "f1": 0.8855869242199109,
+      "false_positive_rate": 0.06469500924214418,
+      "tn": 1012,
+      "fp": 70,
+      "fn": 161,
+      "tp": 894
+    },
+    "8": {
+      "average_precision": 0.9714445837758765,
+      "auroc": 0.9669008593880036,
+      "precision": 0.9210266535044422,
+      "recall": 0.8843601895734597,
+      "f1": 0.902321083172147,
+      "false_positive_rate": 0.07393715341959335,
+      "tn": 1002,
+      "fp": 80,
+      "fn": 122,
+      "tp": 933
+    },
+    "16": {
+      "average_precision": 0.9682061797778396,
+      "auroc": 0.962320084799958,
+      "precision": 0.9223300970873787,
+      "recall": 0.9004739336492891,
+      "f1": 0.9112709832134294,
+      "false_positive_rate": 0.07393715341959335,
+      "tn": 1002,
+      "fp": 80,
+      "fn": 105,
+      "tp": 950
+    }
+  },
+  "paired_bootstrap": {
+    "raw_ap/file16_minus_file4": {
+      "mean": 0.0009672264548831926,
+      "sample_standard_deviation": 0.0039923630299620195,
+      "ci95_percentile_lower": -0.006581684168103991,
+      "median": 0.0008726203295464179,
+      "ci95_percentile_upper": 0.00954993674274185,
+      "probability_file16_better": 0.611,
+      "replicates": 10000,
+      "components": 1588,
+      "seeds": [
+        1001,
+        1002,
+        1003
+      ]
+    },
+    "component_isolated_oof/file16_minus_file4": {
+      "scope": "component_isolated_oof",
+      "condition": "file4",
+      "rows": 2137,
+      "components": 1588,
+      "replicates": 10000,
+      "random_state": 20260810,
+      "observed_practical_minus_ablation": {
+        "precision": -0.005055795028803933,
+        "recall": 0.05308056872037914,
+        "f1": 0.025684058993518444
+      },
+      "precision": {
+        "mean": -0.005112998880898367,
+        "sample_standard_deviation": 0.006617105009881616,
+        "ci95_percentile_lower": -0.018131001641773732,
+        "median": -0.005112876874607208,
+        "ci95_percentile_upper": 0.007716153945505526
+      },
+      "recall": {
+        "mean": 0.0526577470004355,
+        "sample_standard_deviation": 0.02456743267449349,
+        "ci95_percentile_lower": 0.016037504830390344,
+        "median": 0.04945556962266706,
+        "ci95_percentile_upper": 0.10823625548278558
+      },
+      "f1": {
+        "mean": 0.025578029342153554,
+        "sample_standard_deviation": 0.01471949901899493,
+        "ci95_percentile_lower": 0.003376572752615159,
+        "median": 0.02366085568872095,
+        "ci95_percentile_upper": 0.059211086493281904
+      }
+    },
+    "raw_ap/file16_minus_file8": {
+      "mean": -0.005032777709876329,
+      "sample_standard_deviation": 0.005865116808616033,
+      "ci95_percentile_lower": -0.018321120962219363,
+      "median": -0.004454412155728208,
+      "ci95_percentile_upper": 0.004672557767046803,
+      "probability_file16_better": 0.1894,
+      "replicates": 10000,
+      "components": 1588,
+      "seeds": [
+        1001,
+        1002,
+        1003
+      ]
+    },
+    "component_isolated_oof/file16_minus_file8": {
+      "scope": "component_isolated_oof",
+      "condition": "file8",
+      "rows": 2137,
+      "components": 1588,
+      "replicates": 10000,
+      "random_state": 20260810,
+      "observed_practical_minus_ablation": {
+        "precision": 0.0013034435829364366,
+        "recall": 0.016113744075829328,
+        "f1": 0.008949900041282377
+      },
+      "precision": {
+        "mean": 0.0012904427794283824,
+        "sample_standard_deviation": 0.006487129961650196,
+        "ci95_percentile_lower": -0.011575775477723718,
+        "median": 0.0012249335639825665,
+        "ci95_percentile_upper": 0.014295699957476142
+      },
+      "recall": {
+        "mean": 0.015989767406489636,
+        "sample_standard_deviation": 0.013877582204233133,
+        "ci95_percentile_lower": -0.00871973416540487,
+        "median": 0.015340364333652934,
+        "ci95_percentile_upper": 0.04575927656389296
+      },
+      "f1": {
+        "mean": 0.008904630738099106,
+        "sample_standard_deviation": 0.008373850979356605,
+        "ci95_percentile_lower": -0.00620569989073628,
+        "median": 0.008593798079192028,
+        "ci95_percentile_upper": 0.02688747553435462
+      }
+    }
+  },
+  "interpretation": {
+    "4": {
+      "file16_minus_candidate_mean_raw_ap": 0.0009768988814988777,
+      "raw_ap_ci95_lower": -0.006581684168103991,
+      "raw_ap_ci95_upper": 0.00954993674274185,
+      "file16_minus_candidate_oof_f1": 0.025684058993518444,
+      "oof_f1_ci95_lower": 0.003376572752615159,
+      "oof_f1_ci95_upper": 0.059211086493281904,
+      "stable_file16_raw_ap_advantage": false,
+      "stable_candidate_raw_ap_advantage": false
+    },
+    "8": {
+      "file16_minus_candidate_mean_raw_ap": -0.005033964157228232,
+      "raw_ap_ci95_lower": -0.018321120962219363,
+      "raw_ap_ci95_upper": 0.004672557767046803,
+      "file16_minus_candidate_oof_f1": 0.008949900041282377,
+      "oof_f1_ci95_lower": -0.00620569989073628,
+      "oof_f1_ci95_upper": 0.02688747553435462,
+      "stable_file16_raw_ap_advantage": false,
+      "stable_candidate_raw_ap_advantage": false
+    }
+  },
+  "integrity": {
+    "matrix_summary_sha256": "29f05f9bc05f4b683bfdac5fcf6dbaf70a5d1a2b5ce986e7dbabb5c1c5c5e869",
+    "preflight_sha256": "c2b56e871ebb6c442acd781c1c952995dcbb73fe3c9bd4b4e2696cf7f883c8a6",
+    "spec_sha256": "bb4e6ba802fc1d89783d733e56aa3c4eb984cc7efbff8165d14aee1d956b7222",
+    "freeze_manifest_sha256": "203538a10941361d643a02674b76f4f369fb224eb1733d2f21616ea0cda46ee3",
+    "all_prediction_files_aligned": true,
+    "all_recorded_raw_ap_recomputed": true,
+    "oof_repeated_bit_exact": true,
+    "test_locked": true
+  },
+  "outputs": {
+    "metrics_csv": "<PSHGUARD_ROOT>/experiment_outputs/train_final_v10c_filtered700k_20260612/s9c_file_budget_sensitivity_20260819_v1/s9c_file_budget_validation_metrics.csv",
+    "oof_predictions_csv": "<PSHGUARD_ROOT>/experiment_outputs/train_final_v10c_filtered700k_20260612/s9c_file_budget_sensitivity_20260819_v1/s9c_file_budget_oof_predictions.csv",
+    "component_bootstrap_csv": "<PSHGUARD_ROOT>/experiment_outputs/train_final_v10c_filtered700k_20260612/s9c_file_budget_sensitivity_20260819_v1/s9c_file_budget_component_bootstrap.csv",
+    "inventory_csv": "<PSHGUARD_ROOT>/experiment_outputs/train_final_v10c_filtered700k_20260612/s9c_file_budget_sensitivity_20260819_v1/s9c_file_budget_result_inventory.csv"
+  }
+}

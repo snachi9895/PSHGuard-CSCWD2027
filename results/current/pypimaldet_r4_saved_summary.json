@@ -1,0 +1,79 @@
+{
+  "source": "experiment_outputs/supplementary_review_20260906/G_R4_final_acceptance/attempts/20260905T210937Z_7141/summary.json",
+  "source_sha256": "600a48b7e5678e24640c7cd04e738a1f5118d6cc54aff6a106016c71c7881cd3",
+  "packages": 2128,
+  "per_seed": [
+    {
+      "AP": 0.8616725960282778,
+      "AUROC": 0.8647006239007978,
+      "F1": 0.8189300411522634,
+      "FN": 263,
+      "FP": 89,
+      "FPR": 0.0832553788587465,
+      "Precision": 0.8994350282485876,
+      "Recall": 0.7516525023607177,
+      "TN": 980,
+      "TP": 796,
+      "rows": 2128,
+      "seed": 1001,
+      "threshold": 0.6937847137451172
+    },
+    {
+      "AP": 0.9392444486427003,
+      "AUROC": 0.9293507209353477,
+      "F1": 0.8701787394167451,
+      "FN": 134,
+      "FP": 142,
+      "FPR": 0.13283442469597756,
+      "Precision": 0.8669165885660731,
+      "Recall": 0.8734655335221907,
+      "TN": 927,
+      "TP": 925,
+      "rows": 2128,
+      "seed": 1002,
+      "threshold": 0.018888849765062332
+    },
+    {
+      "AP": 0.9014780390644617,
+      "AUROC": 0.8767952716746564,
+      "F1": 0.8264550264550264,
+      "FN": 278,
+      "FP": 50,
+      "FPR": 0.04677268475210477,
+      "Precision": 0.9398315282791817,
+      "Recall": 0.7374881964117092,
+      "TN": 1019,
+      "TP": 781,
+      "rows": 2128,
+      "seed": 1003,
+      "threshold": 0.09130676090717316
+    }
+  ],
+  "summary": {
+    "AP": {
+      "mean_percent": 90.07983612451466,
+      "sample_sd_percentage_points": 3.879039250848039
+    },
+    "AUROC": {
+      "mean_percent": 89.02822055036006,
+      "sample_sd_percentage_points": 3.4370507702446247
+    },
+    "F1": {
+      "mean_percent": 83.85212690080117,
+      "sample_sd_percentage_points": 2.7673144480914598
+    },
+    "FPR": {
+      "mean_percent": 8.762082943560962,
+      "sample_sd_percentage_points": 4.319662764147189
+    },
+    "Precision": {
+      "mean_percent": 90.2061048364614,
+      "sample_sd_percentage_points": 3.652833276484019
+    },
+    "Recall": {
+      "mean_percent": 78.75354107648725,
+      "sample_sd_percentage_points": 7.475390550713795
+    }
+  },
+  "operation": "selected saved aggregate fields; no predictions read or metrics recomputed"
+}
