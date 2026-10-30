@@ -1,0 +1,83 @@
+{
+  "artifact": {
+    "name": "S8-A same-seed paired topology-sequence fusion audit",
+    "short_name": "S8-A-PAIR",
+    "version": "1.0.0",
+    "date": "2026-08-18",
+    "status": "frozen_before_validation_only_cpu_audit"
+  },
+  "question": "What is the reproducible performance and seed variance of one Practical HGT plus one ModernBERT when the two branches use the same random seed?",
+  "scope": {
+    "validation_only": true,
+    "cpu_only": true,
+    "model_training": false,
+    "checkpoint_forward": false,
+    "graph_rebuild": false,
+    "pt_rewrite": false,
+    "test_path_constructed": false,
+    "test_read": false,
+    "test_evaluated": false,
+    "test_unlocked": false
+  },
+  "population": {
+    "rows": 2137,
+    "benign_rows": 1082,
+    "malicious_rows": 1055,
+    "source_clone_components": 1588,
+    "seeds": [1001, 1002, 1003]
+  },
+  "paired_systems": {
+    "1001": ["seed1001_logit_margin", "modernbert_seed1001_logit_margin"],
+    "1002": ["seed1002_logit_margin", "modernbert_seed1002_logit_margin"],
+    "1003": ["seed1003_logit_margin", "modernbert_seed1003_logit_margin"]
+  },
+  "descriptive_hybrid_reference": "For each ModernBERT seed, also recompute the established three-HGT-plus-one-ModernBERT fusion under the identical folds and fitting protocol. This reference is descriptive and is not a hard gate for the lower-cost paired system.",
+  "outer_evaluation": {
+    "fold_source": "exact frozen P5 outer_fold values",
+    "folds": 5,
+    "group_column": "source_clone_component_id",
+    "fit_scope": "other four outer folds only",
+    "threshold_scope": "other four outer folds only",
+    "evaluation_scope": "held-out source-clone components only"
+  },
+  "fusion_model": {
+    "pipeline": ["sklearn.preprocessing.StandardScaler", "sklearn.linear_model.LogisticRegression"],
+    "penalty": "l2",
+    "C": 0.01,
+    "solver": "lbfgs",
+    "class_weight": null,
+    "max_iter": 5000,
+    "tol": 1e-10,
+    "random_state": 20260809,
+    "feature_coefficients_expected_positive": true
+  },
+  "threshold_policy": {
+    "objective": "maximize F1 on outer-train only",
+    "tie_break": ["maximize precision", "minimize false positives", "choose higher threshold"]
+  },
+  "component_branches": {
+    "graph": "reuse the official P4 single_platt_seedXXXX_oof_score and prediction",
+    "sequence": "reuse each official S1 ModernBERT modernbert_oof_score and prediction",
+    "note": "Branch scores are used only as frozen comparison operating points; paired fusion is fit from the two raw logit margins."
+  },
+  "statistics": {
+    "per_seed_component_bootstrap_replicates": 10000,
+    "hierarchical_seed_component_bootstrap_replicates": 20000,
+    "random_state": 20260818,
+    "hierarchical_scheme": "sample three seeds with replacement and independently sample all source-clone components with replacement; calculate mean paired-system F1 minus the corresponding mean branch/hybrid F1",
+    "point_summary": "arithmetic mean and sample standard deviation across the three same-seed systems"
+  },
+  "validity_checks": {
+    "exact_2137_unique_samples": true,
+    "exact_labels_sources_components_and_folds_across_inputs": true,
+    "component_fold_isolation": true,
+    "all_scores_finite": true,
+    "all_five_folds_present": true,
+    "test_absent_by_construction": true
+  },
+  "interpretation": {
+    "primary_paper_result_if_frozen_later": "three one-HGT-plus-one-ModernBERT paired systems reported as mean plus or minus sample standard deviation",
+    "not_nine_runs": "cross-seed combinations are not treated as independent experiments",
+    "not_final_test": "validation has informed prior development and this audit; only a later one-time locked test is independent confirmation"
+  }
+}

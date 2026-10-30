@@ -1,0 +1,85 @@
+{
+  "analysis_id": "file_budget_same_seed_fusion_replay_20261026_v1",
+  "date": "2026-10-26",
+  "status": "fixed_before_new_budget_fusion_results",
+  "authorization": "Author approved continuing the proposed minimal CPU replay in the current conversation on 2026-10-26.",
+  "question": "How do the current one-HGT-plus-one-ModernBERT same-seed systems behave when the graph file budget is 4, 8, 16 or 32, under the original component-isolated OOF fusion protocol?",
+  "design": {
+    "retrospective_development_validation_diagnostic": true,
+    "independent_external_validation": false,
+    "prospective_preregistration": false,
+    "graph_file_budgets": [4, 8, 16, 32],
+    "seeds": [1001, 1002, 1003],
+    "same_seed_pairing_only": true,
+    "graph_inputs": "Saved raw logit margins from the already completed budget-specific HGT runs; budget16 uses the three individual margin columns in the P4 prediction file, not its ensemble scores.",
+    "sequence_inputs": "The same frozen ModernBERT raw logit margins for each seed at every graph budget; the sequence file selection and 512-token limit are unchanged.",
+    "changed_neural_training_factor_in_historical_runs": "Graph max_selected_files only; all non-file graph budgets and original neural training/selection protocols remain as specified in S9-C/S9-C32.",
+    "new_operation": "Refit only a two-feature CPU fusion/calibration pipeline separately for each budget, seed and outer fold.",
+    "not_a_fixed_final_fusion_input_intervention": true,
+    "population": {"rows": 2137, "benign": 1082, "malicious": 1055, "source_clone_components": 1588},
+    "outer_folds": [1, 2, 3, 4, 5],
+    "fold_source": "Unchanged saved P4/P5 outer_fold values, attached by unique sample_id.",
+    "fitting_scope": "Other four outer folds only, including StandardScaler and LR.",
+    "threshold_scope": "Other four outer folds only, using fitted training scores as in the original S8-A implementation.",
+    "evaluation_scope": "Held-out fold only; concatenate the five held-out predictions for each seed before computing package-level metrics."
+  },
+  "fusion_model": {
+    "pipeline": ["sklearn.preprocessing.StandardScaler", "sklearn.linear_model.LogisticRegression"],
+    "penalty": "l2",
+    "C": 0.01,
+    "solver": "lbfgs",
+    "class_weight": null,
+    "max_iter": 5000,
+    "tol": 1e-10,
+    "random_state": 20260809
+  },
+  "threshold_policy": {
+    "candidate_thresholds": "Every distinct outer-training fitted probability, via numpy.unique; prediction is score >= threshold.",
+    "objective": "Maximize outer-training F1.",
+    "tie_break_in_order": ["maximize precision", "minimize false positives", "choose higher threshold"],
+    "change_official_operating_point": false
+  },
+  "reference_gate": {
+    "first_budget": 16,
+    "reference": "Saved S8-A same_seed_pair OOF scores and predictions for seeds1001/1002/1003.",
+    "absolute_score_tolerance": 1e-12,
+    "relative_score_tolerance": 0,
+    "decision_mismatches_allowed": 0,
+    "must_pass_before_budgets_4_8_32": true,
+    "failure_action": "Stop and investigate without generating new-budget performance results."
+  },
+  "reporting": {
+    "primary_question_metric": "OOF F1, arithmetic mean across the three same-seed pairs.",
+    "complete_metrics": ["average_precision", "auroc", "precision", "recall", "f1", "fpr"],
+    "per_seed_and_summary": true,
+    "dispersion": "Sample standard deviation across the three runs, ddof=1; not a confidence interval.",
+    "aggregation": "Compute each seed's metrics first, then average those metrics; do not average seed probabilities into an ensemble.",
+    "also_save": ["confusion counts", "fold thresholds", "scaler parameters", "LR coefficients", "OOF scores and predictions", "descriptive per-seed differences versus16"],
+    "all_budgets_and_seeds_retained": true,
+    "bootstrap_replicates": 0,
+    "significance_claims_from_mean_order_or_SD": false,
+    "legacy_three_HGT_budget_results": "Historical reference only; not used as inputs, not relabeled as dual-branch outputs, and their uncertainty intervals are not transferred."
+  },
+  "compute": {
+    "environment": "<configured-python-for-recorded-environment>",
+    "sklearn_version": "1.7.2",
+    "reference_CPU_LR_fits": 15,
+    "new_budget_CPU_LR_fits": 45,
+    "total_CPU_LR_fits": 60,
+    "neural_training": false,
+    "checkpoint_loading_or_forward": false,
+    "graph_or_PT_rebuild": false,
+    "GPU_work": false
+  },
+  "boundaries": {
+    "validation_only": true,
+    "final_test_paths_or_predictions_read": false,
+    "final_test_rerun": false,
+    "budget_model_threshold_promotion": false,
+    "new_hyperparameter_or_seed_search": false,
+    "old_outputs_overwritten_deleted_or_moved": false,
+    "manuscript_figures_PPT_modified": false,
+    "sample_code_execution_or_sample_URL_access": false,
+    "write_root": "research_state/file_budget_same_seed_fusion_replay_20261026/"
+  }
+}

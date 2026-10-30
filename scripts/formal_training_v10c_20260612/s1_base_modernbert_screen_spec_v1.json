@@ -1,0 +1,99 @@
+{
+  "artifact": {
+    "name": "S1-base ModernBERT paired validation-only screen specification",
+    "version": "1.0.0",
+    "date": "2026-08-15",
+    "status": "frozen_before_cache_build_and_gpu_training"
+  },
+  "scope": {
+    "train_packages": 16613,
+    "validation_packages": 2137,
+    "test_path_constructed": false,
+    "test_read": false,
+    "graph_rebuild": false,
+    "PT_rewrite": false,
+    "seed": 1001,
+    "screen_only": true
+  },
+  "inputs": {
+    "s1_0_summary": "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_0_modernbert_feasibility_20260815_v1/s1_0_modernbert_feasibility_audit.json",
+    "s1_0_summary_sha256": "fde3260c22b18ca03915475e6b661ca899a565d850629a542d32469c9646b1bc",
+    "s1_0_lengths": "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_0_modernbert_feasibility_20260815_v1/s1_0_package_lengths.csv",
+    "s1_0_lengths_sha256": "ce3e755b66f95028ba2930bcd8bc5b19311af84cb2867c2b93465155c907a468",
+    "s1_0_spec": "scripts/formal_training_v10c_20260612/s1_0_modernbert_feasibility_spec_v1.json",
+    "s1_0_spec_sha256": "764ae8db97fcd0c4b1ec00c4aaea55bb79bdbeb295bf56a61974ede9d44a7627",
+    "outer_fold_manifest": "experiment_outputs/train_final_v10c_filtered700k_20260612/p5_topology_sequence_fusion_validation_20260809_v1/p5_topology_sequence_fusion_oof_predictions.csv",
+    "outer_fold_manifest_sha256": "86314ea37afe53f86d8e2e3cddd6af7910ead859e32cf6323747185c3436bc37"
+  },
+  "model": {
+    "model_id": "answerdotai/ModernBERT-base",
+    "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+    "local_snapshot": "baselines/modernbert/artifacts/models/answerdotai_ModernBERT-base_8949b909",
+    "model_weight_sha256": "340ac08b74eef0d7bdec2d7981a6a3d4249bf0e6aab60634b72ad02c2b8023a9",
+    "tokenizer_sha256": "9fd55248d51d33976b324fc11592e28071da7d41e0e9401dfb7082e30574b7b1",
+    "num_labels": 2,
+    "classifier_pooling": "mean",
+    "reference_compile": false,
+    "attention_implementation": "sdpa"
+  },
+  "representation": {
+    "canonical_behavior_text": "identical frozen leakage-safe EA4MP canonical text",
+    "maximum_model_tokens": 512,
+    "truncation": "right-truncated tokenizer prefix",
+    "padding": "fixed right padding to 512",
+    "raw_length_as_feature": false,
+    "unit_count_as_feature": false,
+    "source_or_component_as_feature": false,
+    "purpose": "paired tokenizer/backbone control; no behavior-unit memory encoder is present in S1-base"
+  },
+  "training": {
+    "optimizer": "torch.optim.AdamW",
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "maximum_epochs": 8,
+    "minimum_epochs": 3,
+    "early_stopping_patience": 3,
+    "minimum_AP_delta": 0.0005,
+    "checkpoint_selection": "validation raw average precision; ties by AUROC, lower validation loss, then earlier epoch",
+    "mixed_precision": "bfloat16",
+    "gradient_checkpointing": true,
+    "gradient_clip_norm": 1.0,
+    "scheduler": "constant",
+    "shuffle": "stable SHA256 package order per epoch",
+    "checkpoint_boundary": "after every completed train+validation epoch",
+    "resume": "model, optimizer, epoch, history, and all RNG states"
+  },
+  "resource_pilot": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "memory_total_mib": 8151,
+    "batch_size_8_optimizer_step": "pass_not_saved",
+    "peak_allocated_mib": 2971.0,
+    "peak_reserved_mib": 3072.0,
+    "reference_compile_disabled_reason": "Triton reference compilation requires a missing host C compiler; disabling it preserves weights and model math and uses the supported SDPA implementation."
+  },
+  "evaluation": {
+    "validation_checkpoint_metric": "raw AP",
+    "raw_metrics": [
+      "AP",
+      "AUROC",
+      "margin>=0 F1"
+    ],
+    "operating_point": "the frozen P5 five-fold source-clone-component outer folds; each held-out fold receives a Platt model and F1 threshold fit only on the other four folds",
+    "reference_sequence_margin": "ea4mp_behavior_bert_logit_margin",
+    "reference_raw_AP": 0.9704569528697594,
+    "reference_component_OOF_F1": 0.9226219812715623,
+    "noninferiority_gate": {
+      "raw_AP_delta_minimum": -0.002,
+      "component_OOF_F1_delta_minimum": -0.005,
+      "conjunction": true
+    },
+    "test": "locked"
+  },
+  "decision": {
+    "if_pass": "authorize a separately ablated behavior-unit/lifecycle-aware selective memory encoder on top of the independent ModernBERT branch",
+    "if_fail": "do not add the memory encoder to this backbone; retain P5 and proceed to the predeclared non-Mamba S2 candidate",
+    "S1_base_itself_is_claimed_innovation": false
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "artifact": {
+    "name": "S9-A final model identity and remaining experiment inventory freeze",
+    "short_name": "S9-A-FREEZE",
+    "version": "1.0.0",
+    "date": "2026-08-18",
+    "status": "frozen_before_final_deployment_fit_and_before_any_proposed_model_test_access"
+  },
+  "scope": {
+    "cpu_only": true,
+    "validation_artifacts_only": true,
+    "model_training": false,
+    "checkpoint_forward": false,
+    "graph_rebuild": false,
+    "pt_rewrite": false,
+    "proposed_model_test_manifest_opened": false,
+    "proposed_model_test_predictions_read": false,
+    "proposed_model_test_evaluated": false,
+    "proposed_model_test_unlocked": false
+  },
+  "data_contract": {
+    "name": "final_filtered700k_graph_eligible_v2_strict40_20260722",
+    "train_rows": 16613,
+    "validation_rows": 2137,
+    "validation_benign": 1082,
+    "validation_malicious": 1055,
+    "validation_source_clone_components": 1588,
+    "locked_test_rows_from_split_contract_only": 2128,
+    "locked_test_manifest_sha256_from_split_contract_only": "4481e03bcb932698515466a556e3ff72f30aa94d6a6e6408668c296e0d6abb1b",
+    "split_rule": "package/source-clone components do not cross train, validation, or test"
+  },
+  "primary_system": {
+    "name": "same-seed topology-sequence paired system",
+    "seeds": [1001, 1002, 1003],
+    "per_seed_system": "one Practical HGT checkpoint and one ModernBERT checkpoint with the identical seed",
+    "graph_branch": {
+      "model": "Practical typed HGT",
+      "node_types": ["module", "ast", "event", "param"],
+      "directed_edge_types": 14,
+      "graph_representation": "label-blind bounded semantic-budget V10c graph, maximum 16 selected Python files",
+      "training": "inverse-sqrt source-clone-component weighting, validation-AP checkpoint selection"
+    },
+    "sequence_branch": {
+      "model": "off-the-shelf answerdotai/ModernBERT-base fine-tuned for package behavior-sequence classification",
+      "input_contract": "EA4MP-aligned canonical behavior text, head 512 tokens in the frozen S1 protocol",
+      "originality_boundary": "ModernBERT and its Transformer architecture are not claimed as original"
+    },
+    "fusion": {
+      "inputs": ["graph raw logit margin", "sequence raw logit margin"],
+      "model": "StandardScaler plus L2 LogisticRegression",
+      "C": 0.01,
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "tol": 1e-10,
+      "random_state": 20260809,
+      "crossfit": "five source-clone-component-isolated outer folds; scaler, fusion, and F1 threshold fit on outer-train only",
+      "threshold_tie_break": ["maximize F1", "maximize precision", "minimize false positives", "choose higher threshold"],
+      "deployment_fit": "fit each same-seed pair on all 2137 validation rows and freeze its scaler, coefficients, intercept, and validation-selected threshold before test",
+      "claim_boundary": "a low-variance complementarity integration, not a new fusion algorithm"
+    },
+    "reporting": {
+      "primary": "three same-seed paired systems reported as arithmetic mean plus or minus sample standard deviation",
+      "per_seed_rows_in_appendix": true,
+      "cross_seed_3_by_3_pairs": false,
+      "best_seed_selection": false,
+      "six_checkpoint_joint_ensemble": false,
+      "three_hgt_plus_one_modernbert": "supplementary higher-cost upper-bound reference only, not the primary system"
+    }
+  },
+  "frozen_validation_evidence": {
+    "same_seed_pair_f1": [0.9451395572666025, 0.9475218658892129, 0.9454200284900285],
+    "same_seed_pair_f1_mean": 0.9460271505441075,
+    "same_seed_pair_f1_sample_sd": 0.0013020355206624487,
+    "same_seed_pair_ap_mean": 0.9869640637976308,
+    "hierarchical_pair_minus_modernbert_f1_ci95": [0.008133410969637354, 0.024931544654979883],
+    "hierarchical_pair_minus_graph_f1_ci95": [0.037564426123621805, 0.10076928077766206],
+    "interpretation": "development validation evidence, not final test performance"
+  },
+  "accepted_claims": [
+    "The bounded event-centered heterogeneous behavior graph is the principal task-specific technical contribution.",
+    "Correct graph endpoint topology has same-checkpoint faithfulness support from the degree-rewiring intervention.",
+    "Topology and canonical behavior-sequence views are complementary under source-clone-isolated cross-fitting.",
+    "The V2 source-clone-aware split and leakage-safe operating-point protocol are methodological contributions."
+  ],
+  "forbidden_claims": [
+    "ModernBERT or HGT was invented in this work.",
+    "The regularized late-fusion algorithm itself is novel.",
+    "Exact cross-file edges or a dedicated cross-file encoder have a proven stable global benefit.",
+    "The 94.60 percent validation F1 is a final test result.",
+    "All historical leakage or all possible clone relations have been eliminated.",
+    "EA4MP or Cerebro was reproduced beyond the explicitly documented public-code-aligned boundary."
+  ],
+  "closed_search_space": {
+    "new_sequence_encoder_search": "closed",
+    "new_posthoc_residual_adapter_search": "closed",
+    "new_dynamic_fusion_gate_search": "closed after S8-B negative result",
+    "validation_driven_architecture_changes_after_this_freeze": "prohibited",
+    "allowed_future_changes": "only pre-registered ablations, baselines, efficiency, robustness, OOD feasibility, statistics, figures, and writing"
+  },
+  "remaining_experiments": [
+    {
+      "id": "S9-B",
+      "priority": "MUST",
+      "name": "exact-V2 core graph representation ablations",
+      "status": "pending_dedicated_protocol_freeze",
+      "minimum_rows": ["full", "without Event semantics", "without Param/context semantics", "AST-plus-Module only"],
+      "seeds": [1001, 1002, 1003],
+      "test_access": false,
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "6-12 GPU hours total; resumable matrix"
+    },
+    {
+      "id": "S9-C",
+      "priority": "MUST",
+      "name": "semantic file-budget sensitivity",
+      "status": "pending_cpu_feasibility_and_protocol_freeze",
+      "budgets": [4, 8, 16],
+      "seeds": [1001],
+      "test_access": false,
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "1-3 hours graph preparation plus 2-4 GPU hours"
+    },
+    {
+      "id": "S9-D",
+      "priority": "MUST",
+      "name": "exact-V2 baseline and operating-point table",
+      "status": "partially_complete",
+      "completed": ["EA4MP public-code-aligned", "Cerebro aligned", "VirusTotal", "historical uniform HGT"],
+      "pending": ["static ML on V2", "GuardDog on V2", "OSSGadget on V2", "Bandit4Mal on V2"],
+      "fairness": "each learning method uses the same validation-derived threshold-selection procedure, not the same numeric threshold; rule tools retain frozen native rules",
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "2-8 hours depending on rule-tool delta evaluation"
+    },
+    {
+      "id": "S9-E",
+      "priority": "MUST",
+      "name": "efficiency and resource benchmark",
+      "status": "pending_protocol_freeze",
+      "metrics": ["graph construction time", "sequence extraction time", "training time", "per-package inference latency", "throughput", "parameters", "peak GPU memory", "artifact disk size"],
+      "test_access": false,
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "1-3 hours"
+    },
+    {
+      "id": "S9-F",
+      "priority": "MUST_FOR_STRONG_CCF_C_TARGET",
+      "name": "static robustness stress tests",
+      "status": "pending_protocol_freeze",
+      "transformations": ["semantics-preserving Python identifier renaming", "benign no-op Python-file padding"],
+      "mode": "inference-only paired comparison with unchanged labels and frozen checkpoints/thresholds",
+      "test_access": false,
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "2-5 hours"
+    },
+    {
+      "id": "S9-G",
+      "priority": "SHOULD",
+      "name": "temporal or source-shift generalization evidence",
+      "status": "pending_train_only_metadata_feasibility_audit",
+      "branch_rule": "use temporal holdout only if timestamp provenance/coverage pass a frozen CPU audit; otherwise report pre-registered malicious-source shift stress evaluation",
+      "test_access": false,
+      "blocks_proposed_model_test": false,
+      "estimated_wall_time": "0.5-1 hour feasibility; 3-8 hours if retraining is required"
+    },
+    {
+      "id": "S9-H",
+      "priority": "MUST",
+      "name": "calibration, subgroup, and error analysis",
+      "status": "pending_protocol_freeze",
+      "metrics": ["AP", "AUROC", "precision", "recall", "F1", "FPR", "Brier", "ECE"],
+      "subgroups": ["source", "component novelty", "single versus multiple Python files", "package size", "sequence truncation", "graph coverage"],
+      "statistics": ["paired source-clone-component bootstrap", "effect sizes", "FP/FN overlap"],
+      "blocks_proposed_model_test": true,
+      "estimated_wall_time": "1-2 hours after predictions exist"
+    },
+    {
+      "id": "S9-I",
+      "priority": "FINAL",
+      "name": "one-time proposed-model test evaluation",
+      "status": "LOCKED",
+      "mode": "three same-seed pairs, frozen validation-derived deployment fits, no fitting or threshold selection on test",
+      "blocks_proposed_model_test": false,
+      "estimated_wall_time": "1-3 hours after every MUST gate passes"
+    }
+  ],
+  "test_unlock_gates": [
+    "All six primary checkpoints and their code/data contracts match this SHA-bound freeze.",
+    "Three deployment fusion fits and thresholds are frozen from validation only.",
+    "S9-B through S9-F and S9-H are complete with immutable artifacts; S9-G is complete or explicitly waived for a documented feasibility failure.",
+    "The exact rows and statistics of the final paper table are frozen before proposed-model test predictions exist.",
+    "The final runner contains no fit, calibration, threshold search, architecture selection, or seed selection on test.",
+    "No further architecture or fusion search is permitted after proposed-model test access.",
+    "Test authorization requires a separate manifest and explicit user confirmation; S9-A never unlocks it automatically."
+  ],
+  "target_schedule": [
+    {"date": "2026-08-18", "milestone": "S9-A model/inventory freeze"},
+    {"date": "2026-08-19", "milestone": "core ablations, budget sensitivity, baseline migration"},
+    {"date": "2026-08-20", "milestone": "efficiency, robustness, OOD feasibility"},
+    {"date": "2026-08-21", "milestone": "final protocol freeze, one-time test, statistics and figures"},
+    {"date": "2026-08-22", "milestone": "complete first manuscript draft"}
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "artifact": {
+    "name": "S1-0 ModernBERT behavior-sequence feasibility specification",
+    "version": "1.0.0",
+    "date": "2026-08-15",
+    "status": "frozen_before_cpu_audit"
+  },
+  "scope": {
+    "splits_read": [
+      "train",
+      "validation"
+    ],
+    "train_packages": 16613,
+    "validation_packages": 2137,
+    "test_path_constructed": false,
+    "test_read": false,
+    "labels_used_for_tokenization_or_unit_construction": false,
+    "labels_used_for_post_extraction_stratified_diagnostics": true,
+    "model_training": false,
+    "gpu_operation": false,
+    "graph_rebuild": false,
+    "PT_rewrite": false
+  },
+  "behavior_input": {
+    "track": "EA4MP-public-code-top-files-package-window-local-canonical-v1",
+    "canonicalization_policy": "ea4mp-local-identity-canonicalization-v1",
+    "scientific_control": "The canonical behavior text and frozen V2 source-clone split remain unchanged; only the tokenizer/backbone changes in S1-base.",
+    "train": {
+      "sequence_index": "baselines/ea4mp/artifacts/behavior_sequences/v4_v2_strict40/sequence_index_formal_public_code_train_1_16613.csv",
+      "sequence_index_sha256": "9319089b816eebc0a263192af3700779c9c25fab345d6017d3f7f216e2f972b3",
+      "package_input_index": "baselines/ea4mp/artifacts/bert_inputs/v5_v2_strict40_leakage_safe/public_code_formal_train/package_input_index.csv",
+      "package_input_index_sha256": "33470f5e387100f17063ad63ba41a6c339a19253b727abb41749225a36507dad",
+      "split_manifest": "manifests/final_source_clone_aware_split_202606/final_filtered700k_graph_eligible_v2_strict40_20260722/filtered700k_graph_eligible_v2_train.csv",
+      "split_manifest_sha256": "8635d5e35c28ab750d57b3cc9eedbbc390b6f5f024ba269a94e23856faf0d882"
+    },
+    "validation": {
+      "sequence_index": "baselines/ea4mp/artifacts/behavior_sequences/v4_v2_strict40/sequence_index_formal_public_code_val_1_2137.csv",
+      "sequence_index_sha256": "7cd6252ac50f0388c85508b33857f9fc17883e42a881a69f471999fdd2e32db8",
+      "package_input_index": "baselines/ea4mp/artifacts/bert_inputs/v5_v2_strict40_leakage_safe/public_code_formal_val/package_input_index.csv",
+      "package_input_index_sha256": "6c6ccb79026ebe1a9dd236ab746a01878acc05184f3112ced5bb393a9f34e62b",
+      "split_manifest": "manifests/final_source_clone_aware_split_202606/final_filtered700k_graph_eligible_v2_strict40_20260722/filtered700k_graph_eligible_v2_val.csv",
+      "split_manifest_sha256": "80dfd90b01d0e19f04fdde640a87b472c9491b3f31c677ad336dc3bc18583d18"
+    },
+    "canonicalizer": "baselines/ea4mp/src/ea4mp_repro/behavior_canonicalization.py",
+    "canonicalizer_sha256": "74e274ec25976f1e52b7db7371dfe648edba19f8e0b413b13a4ff110c5907b73",
+    "unit_parser": "baselines/ea4mp/src/ea4mp_repro/segmentation.py",
+    "unit_parser_sha256": "fff2115484b98205fecc4cb9348fb730dd1cd426f3140aaf11e7ab88a4bac52e"
+  },
+  "modernbert": {
+    "model_id": "answerdotai/ModernBERT-base",
+    "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+    "local_snapshot": "baselines/modernbert/artifacts/models/answerdotai_ModernBERT-base_8949b909",
+    "files_sha256": {
+      "config.json": "1609d59e627c33eaed524b4f01e546d42e84190a079a5a5ded84b212c41c324f",
+      "model.safetensors": "340ac08b74eef0d7bdec2d7981a6a3d4249bf0e6aab60634b72ad02c2b8023a9",
+      "special_tokens_map.json": "ea97ecdbcc73713039d8d64dbb05e3689495c96657fbd9a18f5bed381be81049",
+      "tokenizer.json": "9fd55248d51d33976b324fc11592e28071da7d41e0e9401dfb7082e30574b7b1",
+      "tokenizer_config.json": "3cd2017ff46d0a527e5d39cae39272eccfa1f19bb9f89b05d166aab2e38354e2"
+    },
+    "expected_model_type": "modernbert",
+    "expected_vocab_size": 50368,
+    "expected_hidden_size": 768,
+    "expected_layers": 22,
+    "native_max_tokens": 8192
+  },
+  "software": {
+    "conda_environment": "modernbert_20260815",
+    "python_major_minor": "3.10",
+    "transformers": "4.57.6",
+    "torch": "2.11.0+cu128",
+    "setuptools": "81.0.0",
+    "scikit_learn": "1.7.2",
+    "scipy": "1.15.3"
+  },
+  "audit": {
+    "candidate_model_token_caps": [
+      512,
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "lengths_include_two_model_boundary_tokens": true,
+    "required_checks": [
+      "all frozen hashes match",
+      "train and validation populations exactly match their frozen manifests",
+      "raw and canonical behavior hashes replay exactly",
+      "canonical text has no sample ID, raw root, or source-tag residual",
+      "ModernBERT tokenizer and config match the frozen snapshot",
+      "every token length is finite and no package exceeds the native limit after explicit truncation",
+      "length and unit counts never become classifier features",
+      "test remains unconstructed and unread"
+    ]
+  },
+  "paired_screen_protocol": {
+    "stage": "S1-base seed1001 validation-only screen",
+    "input": "the identical canonical behavior text used by the leakage-safe EA4MP reconstruction",
+    "context": "first 512 ModernBERT tokens including model boundary tokens",
+    "purpose": "isolate the pretrained backbone/tokenizer replacement before adding the proposed behavior-unit memory encoder",
+    "training_population": "all 16613 frozen V2 train packages",
+    "validation_population": "all 2137 original validation packages",
+    "test_access": false,
+    "seed": 1001,
+    "reference_raw_AP": 0.9704569528697594,
+    "reference_component_OOF_F1": 0.9226219812715623,
+    "noninferiority_gate": {
+      "raw_AP_delta_minimum": -0.002,
+      "component_OOF_F1_delta_minimum": -0.005,
+      "reason": "S1-base is a backbone control, not the claimed final encoder; the behavior-unit memory stage is authorized only if the independent backbone is not materially inferior."
+    },
+    "next_if_pass": "freeze and train the behavior-unit/lifecycle-aware selective memory encoder",
+    "next_if_fail": "do not spend GPU time on the memory encoder; move to the predeclared non-Mamba S2 sequence candidate"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Single-HGT graph-ablation descriptive reporting protocol v1",
+  "date_local": "2026-10-21",
+  "timezone": "Asia/Shanghai",
+  "recorded_at": "2026-10-21T15:19:43.985052+08:00",
+  "status": "rules fixed before new aggregate calculation; retrospective reporting correction using already-seen validation results, not a prospective experimental preregistration",
+  "authorization": "Author approved next step after explanation: summarize existing single-HGT ablations now, defer manuscript placement to six-page adaptation",
+  "input_metrics": {
+    "path": "experiment_outputs/train_final_v10c_filtered700k_20260612/s9b_exact_v2_graph_representation_ablation_20260819_v1/s9b_graph_representation_validation_metrics.csv",
+    "bytes": 5886,
+    "sha256": "ae22567158c912dc785f7007e75ad314fe82c24250798e11f126b49daa0e1d66"
+  },
+  "conditions": [
+    "practical",
+    "without_event",
+    "without_param_context",
+    "ast_module_only"
+  ],
+  "seeds": [
+    1001,
+    1002,
+    1003
+  ],
+  "metric_protocols": [
+    "raw_argmax",
+    "component_isolated_oof"
+  ],
+  "metrics": [
+    "average_precision",
+    "auroc",
+    "precision",
+    "recall",
+    "f1",
+    "false_positive_rate"
+  ],
+  "population": {
+    "validation_packages": 2137,
+    "benign": 1082,
+    "malicious": 1055,
+    "related_components_from_original_audit": 1588
+  },
+  "selection": "all four conditions and all three single-seed rows per protocol; exclude three_seed_ensemble rows from new single-model aggregation; preserve legacy ensemble separately",
+  "aggregation": "unweighted arithmetic mean of saved per-seed metric values; sample SD with denominator n-1=2; never metric of averaged predictions, never pooled confusion counts, never F1 recomputed from mean precision/recall",
+  "units": "input metric ratios [0,1]; outputs retain full precision; presentation mean x100 in percent and SD x100 in percentage points; display 3 decimals only after calculation",
+  "primary": "retain original raw validation AP as the primary ranking outcome and its already-saved paired uncertainty; secondary single-HGT OOF classification does not replace primary outcome",
+  "secondary": "saved single-HGT component-isolated five-fold OOF calibration and threshold-selected metrics; one graph checkpoint per seed; no current recalibration or rethresholding",
+  "contrasts": "Full minus each ablation for all six metrics under each protocol; descriptive mean of same-seed differences and per-seed directions only; no new contrast SD, CI, p-value, bootstrap or significance claims",
+  "uncertainty": "new per-condition SD describes variation across three runs on the same validation population; it is not a CI or evidence of component significance; the original claim rule remains: stable direction plus corresponding paired uncertainty needed for supported component claim",
+  "legacy": "verify original raw-AP summaries and saved intervals; archive old graph-ensemble point metrics and intervals with correct identity; read and keep existing same-seed 1-HGT+1-ModernBERT fusion summaries/intervals unchanged",
+  "verification": [
+    "source hash and original audit/spec/freeze bindings",
+    "exact 12+12+4 metric row identities",
+    "confusion total and metrics consistency",
+    "full graph single-seed crosscheck against P4 saved candidate CSV",
+    "reproduce legacy raw summaries",
+    "cross-check computed means and sample SD with a separate numerical implementation",
+    "verify protected inputs and manuscript hashes after run"
+  ],
+  "stop_conditions": [
+    "missing/duplicate condition-seed record",
+    "source hash or lineage mismatch",
+    "population/count/metric mismatch",
+    "raw summary reconciliation failure"
+  ],
+  "forbidden": [
+    "training",
+    "checkpoint or sample-code execution",
+    "per-package prediction analysis",
+    "new inference",
+    "calibrator/fusion fitting",
+    "threshold/model/seed selection",
+    "new resampling/statistical inference",
+    "final-test access or rerun",
+    "manuscript/official-template edits",
+    "external submission or payment"
+  ],
+  "source_integrity_note": "metrics CSV was located by saved audit but is not claimed to have been included in earlier 275-item seal selection; current hash matches 2026-10-20 inventory, with further lineage and P4/raw reconciliation required"
+}

@@ -1,0 +1,92 @@
+{
+  "columns": [
+    "sample_id",
+    "label",
+    "label_int",
+    "split",
+    "package_name",
+    "version",
+    "source_group",
+    "group_key",
+    "source_clone_component_id",
+    "source_clone_component_root",
+    "archive_sha256",
+    "raw_corpus_digest",
+    "lexical_corpus_digest",
+    "concrete_ast_corpus_digest",
+    "abstract_ast_corpus_digest",
+    "python_file_count",
+    "parsed_ast_file_count",
+    "skipped_python_file_count",
+    "total_python_bytes",
+    "total_tokens",
+    "total_ast_nodes",
+    "truncated_package",
+    "source_size",
+    "split_version"
+  ],
+  "excluded": "local paths, graph caches, model tensors, and raw package archives",
+  "manifest_parts": [
+    {
+      "file": "pshguard_split_manifest.part-01.csv",
+      "rows": 2000,
+      "sha256": "dd7ee8830d6f7846ee71d83e3a875c4216fc9eeee2fecd25bc5efef5a6e34b47"
+    },
+    {
+      "file": "pshguard_split_manifest.part-02.csv",
+      "rows": 2000,
+      "sha256": "7e4778a626b5ee62ce2fcef2f9f89d43a8f697a183f2f15064b7ba68ef050959"
+    },
+    {
+      "file": "pshguard_split_manifest.part-03.csv",
+      "rows": 2000,
+      "sha256": "8d562f98ba75469c8eafe8c39e53152a3196d384a06bf855be432d454531dfec"
+    },
+    {
+      "file": "pshguard_split_manifest.part-04.csv",
+      "rows": 2000,
+      "sha256": "f1f156f0ff36355fc1dab912f7950f0ebd7522ff3812a77e747c1a3895477ff2"
+    },
+    {
+      "file": "pshguard_split_manifest.part-05.csv",
+      "rows": 2000,
+      "sha256": "b83f3fa5e445c11dece42fa2cdb6df57b93015ec919f257cf85b8927b033e673"
+    },
+    {
+      "file": "pshguard_split_manifest.part-06.csv",
+      "rows": 2000,
+      "sha256": "0467918485a0367430d0d35e75f3a885eaa13bdda6ba404e1e25546f222b3190"
+    },
+    {
+      "file": "pshguard_split_manifest.part-07.csv",
+      "rows": 2000,
+      "sha256": "28997938fd109d5b74e79e3bddb202cbf6ec4d905325a6cd21f7c504aebee190"
+    },
+    {
+      "file": "pshguard_split_manifest.part-08.csv",
+      "rows": 2000,
+      "sha256": "2d241fe83896f306ea020303ce4138a551cfcdb1427c4c567083641883563b76"
+    },
+    {
+      "file": "pshguard_split_manifest.part-09.csv",
+      "rows": 2000,
+      "sha256": "0d4758bf35c497a1bf648ed04b414309ecbd344a653ebe28bf94be15dae1882a"
+    },
+    {
+      "file": "pshguard_split_manifest.part-10.csv",
+      "rows": 2000,
+      "sha256": "f55ff30cd250fdbf09a82940e006f9ee650d042a0e84efbcd18f4218d259ed5b"
+    },
+    {
+      "file": "pshguard_split_manifest.part-11.csv",
+      "rows": 878,
+      "sha256": "3ea52fca2f8788befc8cb79369ba342b7c25372dbcd36ab78c469ef0369443f2"
+    }
+  ],
+  "rows": 20878,
+  "split_counts": {
+    "test": 2128,
+    "train": 16613,
+    "val": 2137
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "artifact": {
+    "name": "S1-base ModernBERT seeds1002/1003 confirmatory matrix specification",
+    "version": "1.0.0",
+    "date": "2026-08-16",
+    "status": "frozen_before_confirmatory_gpu_training"
+  },
+  "purpose": "Measure whether the positive seed1001 ModernBERT standalone and P5 sequence-replacement results are stable to initialization and deterministic minibatch order.",
+  "scope": {
+    "seeds": [1002, 1003],
+    "train_packages": 16613,
+    "validation_packages": 2137,
+    "validation_only": true,
+    "test_path_constructed": false,
+    "test_read": false,
+    "test_evaluated": false,
+    "graph_rebuild": false,
+    "pt_rewrite": false
+  },
+  "frozen_reference": {
+    "base_spec": "scripts/formal_training_v10c_20260612/s1_base_modernbert_screen_spec_v1.json",
+    "base_spec_sha256": "e83924f3e752caa6a308871d22b3d690f94900abe48d83c0f3114f2027d71bea",
+    "base_runner": "scripts/formal_training_v10c_20260612/run_s1_base_modernbert_screen.py",
+    "base_runner_sha256": "4300d7974d2298149c7c16edc6d070f0a699fac5a94a00166281ff9af70791db",
+    "seed1001_result": "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_seed1001_validation_20260815_v1/validation_result.json",
+    "seed1001_status": "pass",
+    "cache_root": "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_seed1001_validation_20260815_v1/cache",
+    "cache_audit_sha256": "f6eff5c2c544ed10387ec9a453f71251433c6c99159d8a65d82b32fb7a134bdb"
+  },
+  "invariants": {
+    "only_changes": [
+      "model/classifier initialization seed",
+      "deterministic per-epoch package order seed"
+    ],
+    "unchanged": [
+      "ModernBERT model revision and weights",
+      "train and validation population",
+      "cached 512-token inputs",
+      "optimizer and all hyperparameters",
+      "validation AP checkpoint policy",
+      "five source-clone-component outer folds",
+      "outer-train-only Platt and F1-threshold protocol"
+    ]
+  },
+  "training": {
+    "optimizer": "torch.optim.AdamW",
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "maximum_epochs": 8,
+    "minimum_epochs": 3,
+    "early_stopping_patience": 3,
+    "minimum_AP_delta": 0.0005,
+    "mixed_precision": "bfloat16",
+    "gradient_checkpointing": true,
+    "gradient_clip_norm": 1.0,
+    "scheduler": "constant",
+    "shuffle": "stable SHA256 package order per epoch",
+    "checkpoint_selection": "validation raw average precision; ties by AUROC, lower validation loss, then earlier epoch",
+    "checkpoint_boundary": "after every completed train+validation epoch",
+    "resume": "model, optimizer, epoch, history, and all RNG states"
+  },
+  "post_matrix_confirmation_protocol": {
+    "members": [1001, 1002, 1003],
+    "standalone_report": "mean and sample standard deviation of raw AP and component-isolated OOF F1",
+    "fusion_report": "replace only P5 sequence margin separately for each seed under the frozen S1-FUS five-fold protocol",
+    "stability_confirmed_if": {
+      "mean_fusion_AP_delta_vs_P5_min_exclusive": 0.0,
+      "mean_fusion_F1_delta_vs_P5_min_exclusive": 0.0,
+      "fusion_F1_positive_direction_seeds_min": 2,
+      "worst_seed_fusion_F1_delta_min": -0.005,
+      "hierarchical_seed_component_bootstrap_median_min_exclusive": 0.0
+    },
+    "strong_statistical_support_additional_condition": "hierarchical seed-component bootstrap 95% CI lower bound is nonnegative",
+    "interpretation": "The stability decision and the stronger CI condition are reported separately; the latter is not retroactively required to call a direction stable."
+  },
+  "decision": {
+    "if_stability_confirmed": "retain S1-FUS as the leading complete development candidate, while sequence-side architectural novelty remains a separate question",
+    "if_not_confirmed": "retain frozen P5 as the stable complete development reference",
+    "test_policy": "test remains locked until architecture and final freeze are complete"
+  }
+}

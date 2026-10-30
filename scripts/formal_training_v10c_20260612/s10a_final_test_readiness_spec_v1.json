@@ -1,0 +1,174 @@
+{
+  "artifact": {
+    "name": "S10-A final model, paper matrix, and one-shot test readiness freeze",
+    "version": "1.0.0",
+    "date": "2026-08-22",
+    "status": "frozen_before_proposed_model_exact_v2_test_access"
+  },
+  "scope": {
+    "cpu_only": true,
+    "validation_and_existing_summary_artifacts_only": true,
+    "model_training": false,
+    "checkpoint_forward": false,
+    "graph_rebuild": false,
+    "test_manifest_path_constructed": false,
+    "proposed_model_test_rows_read": false,
+    "proposed_model_test_predictions_read": false,
+    "proposed_model_test_evaluated": false,
+    "test_authorized_by_this_stage": false
+  },
+  "data_contract": {
+    "name": "final_filtered700k_graph_eligible_v2_strict40_20260722",
+    "train_rows": 16613,
+    "validation_rows": 2137,
+    "validation_benign": 1082,
+    "validation_malicious": 1055,
+    "validation_components": 1588,
+    "locked_test_rows_from_prior_split_contract_only": 2128,
+    "locked_test_manifest_sha256_from_prior_split_contract_only": "4481e03bcb932698515466a556e3ff72f30aa94d6a6e6408668c296e0d6abb1b",
+    "test_manifest_is_not_opened_or_rehashed_in_s10a": true
+  },
+  "operating_point_protocol": {
+    "learned_methods": "fit calibrator or fusion and choose threshold on the 2137-row validation set only; apply unchanged to test",
+    "single_branch_calibrator": {
+      "pipeline": "StandardScaler plus L2 LogisticRegression",
+      "C": 0.01,
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "tol": 1e-10,
+      "random_state": 20260809
+    },
+    "threshold_tie_break": [
+      "maximize malicious-class F1",
+      "maximize precision",
+      "minimize false positives",
+      "choose the higher threshold"
+    ],
+    "rule_tools": "retain each frozen native binary alert rule; no seed and no learned threshold",
+    "same_numeric_threshold_across_methods": false,
+    "test_refit_or_threshold_search": false
+  },
+  "primary_system": {
+    "name": "same-seed Practical HGT plus ModernBERT paired system",
+    "seeds": [1001, 1002, 1003],
+    "reporting": "arithmetic mean plus or minus sample standard deviation over three independently trained same-seed systems",
+    "pairing": [
+      "HGT1001 plus ModernBERT1001",
+      "HGT1002 plus ModernBERT1002",
+      "HGT1003 plus ModernBERT1003"
+    ],
+    "forbidden_selection": [
+      "best-seed selection",
+      "three-by-three cross-seed cherry-picking",
+      "six-checkpoint joint ensemble as the primary row"
+    ],
+    "validation_reference": {
+      "fusion_f1_mean": 0.9460271505441075,
+      "fusion_f1_sample_sd": 0.0013020355206624487,
+      "fusion_ap_mean": 0.9869640637976308,
+      "fusion_ap_sample_sd": 0.0011792117419997206
+    }
+  },
+  "main_test_table": {
+    "rows_in_order": [
+      "Bandit4Mal",
+      "GuardDog",
+      "OSSGadget",
+      "Cerebro",
+      "EA4MP",
+      "Practical HGT (ours, graph branch)",
+      "ModernBERT (auxiliary sequence branch)",
+      "HGT plus ModernBERT (ours)"
+    ],
+    "metrics": ["AP", "AUROC", "Precision", "Recall", "F1", "FPR"],
+    "static_tool_score_metrics": "AP and AUROC are not applicable when only a native binary alert is exposed",
+    "learned_method_seed_reporting": "mean plus or minus sample standard deviation over three seeds",
+    "rule_tool_seed_reporting": "single deterministic result",
+    "no_validation_numbers_in_final_test_table": true
+  },
+  "validation_only_tables": [
+    "core graph representation ablation and ablation-plus-ModernBERT replay",
+    "file-budget sensitivity at 4, 8, 16, and 32 files",
+    "Practical HGT versus homogeneous GAT control",
+    "controlled efficiency and resource profile",
+    "static-source robustness stress tests",
+    "prefix-defined partial malicious-source shift stress test",
+    "calibration, FPR, subgroup, complementarity, and error analysis"
+  ],
+  "claim_boundaries": {
+    "primary_technical_claim": "a label-blind, bounded, event-and-payload-aware heterogeneous package graph jointly models syntax, dangerous behavior events, parameter payloads, and package context",
+    "cross_file_relations": "retained as part of the package-level graph design, but not claimed as a separately proven encoder or a universally beneficial independent module",
+    "package_global_param_anchor": "retained as a design detail only; S9-I does not authorize it as an independent performance contribution",
+    "ModernBERT": "off-the-shelf auxiliary sequence backbone, not an original architecture",
+    "fusion": "leakage-safe low-variance complementary integration, not a novel fusion algorithm",
+    "partial_OOD": "prefix-defined partial malicious-source shift stress test, not a clean independent Datadog-family or temporal OOD benchmark"
+  },
+  "baseline_contract": {
+    "Cerebro": "three validation-frozen seed operating points are ready; an earlier one-shot baseline test artifact exists and is reused, not rerun or retuned",
+    "EA4MP": "three full-AdaBoost validation runs and three deployment thresholds are frozen; final full-method test metrics remain pending",
+    "Bandit4Mal": "deterministic B800-B899 custom-rule policy; exact V2 SHA join and unmatched-row inference only after final authorization",
+    "GuardDog": "deterministic any-issue native policy; exact V2 SHA join and unmatched-row inference only after final authorization",
+    "OSSGadget": "deterministic any-rule native policy; exact V2 SHA join and unmatched-row inference only after final authorization",
+    "excluded_from_main_table": [
+      "traditional KNN or XGBoost rows excluded by author decision",
+      "historical uniform V10c HGT excluded because it is not a distinct external method",
+      "VirusTotal excluded because a reproducible complete exact-V2 query contract is unavailable"
+    ]
+  },
+  "historical_test_access_disclosure": {
+    "strict_global_test_never_read": false,
+    "proposed_primary_model_test_unread": true,
+    "full_EA4MP_AdaBoost_test_unread_in_S9D_and_S9D2": true,
+    "existing_baseline_test_history": [
+      "P10-E evaluated Cerebro using validation-frozen operating points",
+      "P10-D evaluated an EA4MP BERT-channel operating-point sensitivity, not the final full-AdaBoost baseline row"
+    ],
+    "scientific_boundary": "none of these historical baseline results was used to choose the proposed HGT graph, ModernBERT checkpoints, paired fusion, or their deployment thresholds"
+  },
+  "promotion_rule": {
+    "s10a_can_authorize_test": false,
+    "pass_meaning": "ready to implement, freeze, and independently preflight one fail-closed one-shot test runner",
+    "remaining_before_test": [
+      "generate immutable single-branch deployment fits from validation",
+      "implement one unified runner with no fit, threshold search, seed selection, or architecture selection on test",
+      "freeze runner, model checkpoints, baseline policies, operating points, exact row order, table schema, and output inventory by SHA256",
+      "preflight without reading test rows",
+      "obtain explicit user authorization for the one-shot execution"
+    ]
+  },
+  "freeze_inputs": [
+    "scripts/formal_training_v10c_20260612/s10a_final_test_readiness_spec_v1.json",
+    "scripts/formal_training_v10c_20260612/audit_s10a_final_test_readiness.py",
+    "scripts/formal_training_v10c_20260612/run_s10a_final_test_readiness.sh",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s8a_same_seed_paired_fusion_validation_20260818_v1/s8a_same_seed_paired_fusion_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9a_final_model_experiment_freeze_20260818_v1/s9a_final_model_experiment_freeze_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9a_final_model_experiment_freeze_20260818_v1/s9a_same_seed_deployment_fits.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9b_exact_v2_graph_representation_ablation_20260819_v1/s9b_graph_representation_result_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9b_ablation_fusion_replay_validation_20260819_v1/s9bf_ablation_fusion_replay_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9c_file_budget_sensitivity_20260819_v1/s9c_file_budget_result_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9c32_file_budget_saturation_20260820_v1/s9c32_file_budget_result_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9d_fair_baseline_readiness_20260820_v1/s9d_fair_baseline_readiness.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9d1_static_tool_policy_reuse_audit_20260820_v1/s9d1_static_tool_policy_reuse_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9d2_ea4mp_full_adaboost_operating_point_validation_20260820_v1/s9d2_ea4mp_full_adaboost_operating_point_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9d2_ea4mp_full_adaboost_operating_point_validation_20260820_v1/s9d2_ea4mp_full_adaboost_deployment_thresholds.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9e1_controlled_efficiency_profile_20260821_v1_0_2/s9e1_controlled_efficiency_profile.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9f_static_robustness_validation_20260821_v1_0_2/s9f_static_robustness_result.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/final/s9g2_guo_to_datadog_partial_ood_result.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9g2_guo_to_datadog_partial_ood_20260821_v1/provenance_audit/s9g2_source_provenance_readonly_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9h_calibration_fpr_error_analysis_20260821_v1_0_2/s9h_calibration_fpr_error_analysis.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9i_package_global_param_anchor_audit_20260819_v1/s9i_package_global_param_anchor_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s9j_homogeneous_gat_control_validation_20260820_v1/s9j_homogeneous_gat_result_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p10e_cerebro_uniform_operating_point_sensitivity_20260815_v1/p10e_validation_deployment_freeze.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p10e_cerebro_uniform_operating_point_sensitivity_20260815_v1/p10e_result_integrity_audit.json",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p4_calibrated_ensemble_validation_20260808_v1/p4_calibrated_ensemble_oof_predictions.csv",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_seed1001_validation_20260815_v1/validation_predictions.csv",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_confirmatory_seeds1002_1003_validation_20260816_v1/seed1002/validation_predictions.csv",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_confirmatory_seeds1002_1003_validation_20260816_v1/seed1003/validation_predictions.csv",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p3_rcber_batchsafe_paired_validation_20260807_v2/runs/v10c_formal_v2_strict40_ast_event_param_context_type_balanced_ckpt_ap_inverse_sqrt_p3_batchsafe_practical_v2_seed1001/checkpoints/best_model.pt",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p3_rcber_batchsafe_paired_validation_20260807_v2/runs/v10c_formal_v2_strict40_ast_event_param_context_type_balanced_ckpt_ap_inverse_sqrt_p3_batchsafe_practical_v2_seed1002/checkpoints/best_model.pt",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/p3_rcber_batchsafe_paired_validation_20260807_v2/runs/v10c_formal_v2_strict40_ast_event_param_context_type_balanced_ckpt_ap_inverse_sqrt_p3_batchsafe_practical_v2_seed1003/checkpoints/best_model.pt",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_seed1001_validation_20260815_v1/best_validation_model.pt",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_confirmatory_seeds1002_1003_validation_20260816_v1/seed1002/best_validation_model.pt",
+    "experiment_outputs/train_final_v10c_filtered700k_20260612/s1_base_modernbert_confirmatory_seeds1002_1003_validation_20260816_v1/seed1003/best_validation_model.pt"
+  ]
+}
